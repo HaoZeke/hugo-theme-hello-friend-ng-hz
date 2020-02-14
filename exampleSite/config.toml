@@ -81,6 +81,11 @@ disableHugoGeneratorInject = false
   defaultTheme = "dark"
   themeColor = "#252627"
 
+[params.utterances]
+issue = "pathname"
+theme = "photon-dark"
+repo  ="haozeke/hello-friend-ng-hz"
+
   # Colors for favicons
   [params.favicon.color]
     mask = "#252627"
