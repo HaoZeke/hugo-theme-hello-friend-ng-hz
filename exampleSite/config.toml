@@ -85,6 +85,7 @@ disableHugoGeneratorInject = false
 issue = "pathname"
 theme = "photon-dark"
 repo  ="haozeke/hello-friend-ng-hz"
+label = "💬"
 
   # Colors for favicons
   [params.favicon.color]
