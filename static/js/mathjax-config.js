@@ -1,7 +1,7 @@
 window.MathJax = {
-  loader: {load: ['[tex]/unicode']},
+  loader: { load: ["[tex]/unicode", "[tex]/ams"] },
   tex: {
-    packages: {'[+]': ['unicode']}
-    tags: "ams"
-  }
+    packages: { "[+]": ["unicode", "ams"] },
+    tags: "ams",
+  },
 };
