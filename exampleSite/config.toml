@@ -109,6 +109,11 @@ label = "Utterance 💬"
     url  = "https://twitter.com/"
 
   [[params.social]]
+    name = "mastodon"
+    rel  = "me"
+    url  = "https://mastodon.cloud/@someone"
+
+  [[params.social]]
     name = "email"
     url  = "mailto:nobody@example.com"
 
