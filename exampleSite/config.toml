@@ -53,6 +53,9 @@ disableHugoGeneratorInject = false
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
 
+  # Alternative to Google Analytics
+  goatCounter = ""
+
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"
   keywords = ""

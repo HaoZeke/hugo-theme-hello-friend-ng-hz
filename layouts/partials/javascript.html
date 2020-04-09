@@ -16,6 +16,10 @@
     </script>
 {{- end}}
 
+{{- if .Site.Params.GoatCounter }}
+<script data-goatcounter="https://{{.Site.Params.GoatCounter}}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{{- end}}
+
 {{ range $val := $.Site.Params.customJS }}
 	{{ if gt (len $val) 0 }}
 		<script src="{{ $val }}"></script>
