@@ -2,6 +2,14 @@
     <span class="header__inner">
         {{ partial "logo.html" . }}
 
+        {{ if .Site.Params.Search }}
+        <button class="button">
+        <a href="{{ .Site.BaseURL }}/search" >
+            <span class="button__text">Search</span>
+        </a>
+        </button>
+       {{ end }}
+
         <span class="header__right">
             {{ if len .Site.Menus }}
                 {{ partial "menu.html" . }}
