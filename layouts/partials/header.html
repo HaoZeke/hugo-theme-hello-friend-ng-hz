@@ -3,13 +3,13 @@
         {{ partial "logo.html" . }}
 
         {{ if .Site.Params.Search }}
-        <button class="button">
+        <div class="button">
             <div class="button__text">
         <a href="{{ .Site.BaseURL }}/search" >
                 Search
         </a>
             </div>
-        </button>
+        </div>
        {{ end }}
 
         <div class="header__right">
