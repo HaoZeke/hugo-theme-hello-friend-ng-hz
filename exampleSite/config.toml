@@ -55,6 +55,8 @@ disableHugoGeneratorInject = false
 
   # Alternative to Google Analytics
   goatCounter = ""
+  # Syntax highlighting
+  prism = true
 
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"
