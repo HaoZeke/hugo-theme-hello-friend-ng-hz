@@ -96,7 +96,8 @@
 }
 
 .pagination {
-  margin-top: 20px;
+  min-width: 16rem;
+  // margin-top: 20px;
 
   &__title {
     display: flex;

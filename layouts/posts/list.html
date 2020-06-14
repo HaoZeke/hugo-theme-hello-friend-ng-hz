@@ -5,11 +5,9 @@
         {{- if .Content }}
             <div class="content">{{ .Content }}</div>
         {{- end }}
-
-        {{- range .Data.Pages.GroupByDate "2006" }}
+            {{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups  }}
             <div class="posts-group">
                 <div class="post-year">{{ .Key }}</div>
-
                 <ul class="posts-list">
                     {{- range .Pages }}
                         <li class="post-item">
@@ -23,4 +21,5 @@
             </div>
         {{- end }}
     </main>
+    {{ partial "pagelist.html" . }}
 {{ end }}

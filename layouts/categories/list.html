@@ -11,21 +11,25 @@
             <div class="posts-group">
                 <div class="post-year">{{ .Data.Singular }}</div>
                 <ul class="posts-list">
-            {{ range .Site.Taxonomies.categories }}
+                    {{ range .Paginator.Pages.ByTitle }}
                         <li class="post-item">
                             <a href="{{ .Page.Permalink }}">
                                 <span class="post-title">{{ .Page.Title }}</span>
-                                <span class="post-day">{{ .Count }} entries</span>
+                                {{ if eq (len .Pages) 1 }}
+                                <span class="post-day">{{ len .Pages }} post</span>
+                                {{ else }}
+                                <span class="post-day">{{ len .Pages }} posts</span>
+                                {{ end }}
                             </a>
                         </li>
                     {{- end }}
                 </ul>
             </div>
-
+    </main>
+    {{ partial "pagelist.html" . }}
         {{ else }}
-
         <h1>{{ .Title }}</h1>
-            {{- range .Data.Pages.GroupByDate "2006" }}
+            {{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups  }}
             <div class="posts-group">
                 <div class="post-year">{{ .Key }}</div>
                 <ul class="posts-list">
@@ -40,6 +44,7 @@
                 </ul>
             </div>
         {{- end }}
-        {{ end }}
     </main>
+    {{ partial "pagelist.html" . }}
+{{ end }}
 {{ end }}
