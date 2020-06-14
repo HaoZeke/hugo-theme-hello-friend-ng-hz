@@ -141,6 +141,8 @@
     a {
       text-decoration: none;
       font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
     }
   }
 }
@@ -172,8 +174,8 @@
     padding: 8px 16px;
     text-decoration: none;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    // white-space: nowrap;
+    // overflow: hidden;
   }
 
   &__text {
