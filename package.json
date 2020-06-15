@@ -15,5 +15,18 @@
   "devDependencies": {
     "bulma": "^0.8.0",
     "node-sass": "^4.13.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.8.0",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
+    "postcss-color-function": "^4.1.0",
+    "postcss-css-reset": "^1.0.2",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-media-minmax": "^4.0.0",
+    "postcss-mixins": "^6.2.3",
+    "postcss-nested": "^4.2.1",
+    "postcss-simple-vars": "^5.0.2",
+    "postcss-typography": "^1.0.0"
   }
 }
