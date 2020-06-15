@@ -35,6 +35,7 @@
     {{ end }}
   
         {{ else }}
+        <h1>{{ .Title }}</h1>
         {{- if .Pages -}}
             {{- $pages := .Pages.GroupByDate "2006" -}}
             {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
