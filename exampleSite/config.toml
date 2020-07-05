@@ -55,6 +55,8 @@ disableHugoGeneratorInject = false
 
   # Alternative to Google Analytics
   goatCounter = ""
+  # Another analytics alternative
+  clicky = ""
   # Syntax highlighting
   prism = true
 
