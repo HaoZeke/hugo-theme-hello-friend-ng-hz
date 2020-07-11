@@ -2,6 +2,7 @@
 {{ $menu := resources.Get "js/menu.js" }}
 {{ $theme := resources.Get "js/theme.js" }}
 {{ $clicky := resources.Get "js/clicky.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $codefold := resources.Get "js/codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
@@ -26,6 +27,11 @@
 
 {{- if .Site.Params.Prism }}
 <script src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.20.0,npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+{{- end}}
+
+{{- if .Site.Params.Codefold }}
+<script src="https://cdn.jsdelivr.net/npm/readmore-js@3.0.0-beta-1/dist/readmore.min.js"></script>
+<script async src="{{ $codefold.RelPermalink }}" integrity="{{ $codefold.Data.Integrity }}" ></script>
 {{- end}}
 
 {{ range $val := $.Site.Params.customJS }}

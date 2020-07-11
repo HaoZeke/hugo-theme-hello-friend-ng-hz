@@ -58,7 +58,9 @@ disableHugoGeneratorInject = false
   # Another analytics alternative
   clicky = ""
   # Syntax highlighting
-  prism = true
+  prism = false # Use hugo logic by default
+  # Use codefolding logic
+  codefold = true
 
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"
