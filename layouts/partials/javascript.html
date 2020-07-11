@@ -1,7 +1,6 @@
 {{ $main := resources.Get "js/main.js" }}
 {{ $menu := resources.Get "js/menu.js" }}
 {{ $theme := resources.Get "js/theme.js" }}
-{{ $clicky := resources.Get "js/clicky.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $codefold := resources.Get "js/codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
@@ -22,7 +21,7 @@
 
 {{- if .Site.Params.Clicky }}
 <script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push({{.Site.Params.Clicky}});</script>
-<script async src="{{ $clicky.RelPermalink }}" integrity="{{ $clicky.Data.Integrity }}" ></script>
+<script async src="https://static.getclicky.com/js"></script>
 {{- end}}
 
 {{- if .Site.Params.Prism }}
@@ -39,3 +38,4 @@
 		<script src="{{ $val }}"></script>
 	{{ end }}
 {{ end }}
+
