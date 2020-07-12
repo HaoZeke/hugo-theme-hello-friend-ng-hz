@@ -1,4 +1,4 @@
-new Readmore("pre", {
+new Readmore(".highlight", {
   speed: 75,
   heightMargin: 25,
   lessLink:
