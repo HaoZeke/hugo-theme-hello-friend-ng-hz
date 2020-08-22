@@ -1,20 +1,19 @@
-# Hello Friend NG
+# Hello Friend NG-HZ
 
-![Hello Friend NG](https://dsh.re/d27822)
+![Hello Friend NG -- HZ edition](https://dsh.re/d27822)
 
 ## General informations
 
-This theme was highly inspired by the [hello-friend](https://github.com/panr/hugo-theme-hello-friend) and [hermit](https://github.com/Track3/hermit). A lot of kudos for theier great work.
+This theme was highly inspired by the [hello-friend](https://github.com/panr/hugo-theme-hello-friend), [hermit](https://github.com/Track3/hermit) and the [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng/) theme. A lot of kudos for theier great work.
 
 ## Features
 
 - Theming: **dark/light mode**, depending on your preferences (dark is default, but you can change it)
 - Great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/)
-- Nice code highlighting thanks to [**PrismJS**](https://prismjs.com)
+- Hugo native code highlighting
 - An easy way to modify the theme with Hugo tooling
 - Fully responsive
 - Support for social icons
-
 
 ## How to start
 
@@ -22,14 +21,14 @@ You can download the theme manually by going to [https://github.com/rhazdon/hugo
 
 You can also clone it directly to your Hugo folder:
 
-``` bash
-$ git clone https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
+```bash
+$ git clone https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz.git themes/hello-friend-ng-hz
 ```
 
 If you don't want to make any radical changes, it's the best option, because you can get new updates when they are available. To do so, include it as a git submodule:
 
-``` bash
-$ git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
+```bash
+$ git submodule add https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz.git themes/hello-friend-ng-hz
 ```
 
 ## How to configure
@@ -37,7 +36,7 @@ $ git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git th
 The theme doesn't require any advanced configuration. Just copy the following config file.
 Note: There are more options to configure. Take a look into the `config.toml` in `exampleSite`.
 
-``` toml
+```toml
 baseurl = "/"
 languageCode = "en-us"
 theme = "hello-friend-ng"
@@ -64,7 +63,7 @@ theme = "hello-friend-ng"
 
 [languages]
   [languages.en]
-    title = "Hello Friend NG"
+    title = "Hello Friend NG HZ"
     subtitle = "A simple theme for Hugo"
     keywords = ""
     copyright = ""
@@ -103,14 +102,14 @@ and go to `localhost:1313` in your browser. From now on all the changes you make
 
 Properties:
 
-  - `src` (required)
-  - `alt` (optional)
-  - `position` (optional, default: `left`, options: [`left`, `center`, `right`])
-  - `style`
+- `src` (required)
+- `alt` (optional)
+- `position` (optional, default: `left`, options: [`left`, `center`, `right`])
+- `style`
 
 Example:
 
-``` golang
+```golang
 {{< image src="/img/hello.png" alt="Hello Friend" position="center" style="border-radius: 8px;" >}}
 ```
 
@@ -118,17 +117,17 @@ Example:
 
 Properties:
 
-  - `src` (required)
-  - `alt` (optional)
-  - `position` (optional, default: `left`, options: [`left`, `center`, `right`])
-  - `style` (optional)
-  - `caption` (optional)
-  - `captionPosition` (optional, default: `center`, options: [`left`, `center`, `right`]),
-  - `captionStyle` (optional)
+- `src` (required)
+- `alt` (optional)
+- `position` (optional, default: `left`, options: [`left`, `center`, `right`])
+- `style` (optional)
+- `caption` (optional)
+- `captionPosition` (optional, default: `center`, options: [`left`, `center`, `right`]),
+- `captionStyle` (optional)
 
 Example:
 
-``` golang
+```golang
 {{< figure src="/img/hello.png" alt="Hello Friend" position="center" style="border-radius: 8px;" caption="Hello Friend!" captionPosition="right" captionStyle="color: red;" >}}
 ```
 
@@ -157,8 +156,6 @@ Use [RealFaviconGenerator](https://realfavicongenerator.net/) to generate these 
 - mstile-150x150.png
 - safari-pinned-tab.svg
 - site.webmanifest
-
-
 
 ## Available Social Icons:
 
@@ -193,7 +190,7 @@ Related issue tickets: [!14](https://github.com/rhazdon/hugo-theme-hello-friend-
 
 Either you comment it out completely or you write the following in
 
-``` toml
+```toml
 [taxonomies]
   tag      = "tags"
   category = "categories"
@@ -209,19 +206,22 @@ $ cd themes/hello-friend-ng
 
 and then run:
 
-```
-$ npm install
+```{bash}
+nix-shell
+# For setting the right path
+ln -s $NODE_PATH node_modules
 ```
 
 ## Third Party
 
-  - [normalize.css](https://github.com/necolas/normalize.css)
-  - [Feather Open Source Icons](https://github.com/feathericons/feather)
-  - [Simple Icons](https://simpleicons.org/)
-  - [Flag Icon](https://github.com/lipis/flag-icon-css)
+- [modern-normalize](https://github.com/sindresorhus/modern-normalize)
+- [Feather Open Source Icons](https://github.com/feathericons/feather)
+- [Simple Icons](https://simpleicons.org/)
+- [Flag Icon](https://github.com/lipis/flag-icon-css)
 
 ## Licence
 
+Copyright © 2020--present Rohit Goswami
 Copyright © 2019-2020 Djordje Atlialp
 
 The theme is released under the MIT License. Check the [original theme license](https://github.com/rhazdon/hugo-theme-hello-friend-ng/blob/master/LICENSE.md) for additional licensing information.
