@@ -1,50 +1,86 @@
+// Inter UI
 @font-face {
-  font-family: 'Inter UI';
-  font-style:  normal;
+  font-family: "Inter UI";
+  font-style: normal;
   font-display: auto;
   font-weight: 400;
   src: url("../fonts/Inter-UI/Inter-UI-Regular.woff2") format("woff2"),
-       url("../fonts/Inter-UI/Inter-UI-Regular.woff") format("woff");
+    url("../fonts/Inter-UI/Inter-UI-Regular.woff") format("woff");
 }
 @font-face {
-  font-family: 'Inter UI';
-  font-style:  italic;
+  font-family: "Inter UI";
+  font-style: italic;
   font-display: auto;
   font-weight: 400;
   src: url("../fonts/Inter-UI/Inter-UI-Italic.woff2") format("woff2"),
-       url("../fonts/Inter-UI/Inter-UI-Italic.woff") format("woff");
+    url("../fonts/Inter-UI/Inter-UI-Italic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Inter UI';
-  font-style:  normal;
+  font-family: "Inter UI";
+  font-style: normal;
   font-display: auto;
   font-weight: 600;
   src: url("../fonts/Inter-UI/Inter-UI-Medium.woff2") format("woff2"),
-       url("../fonts/Inter-UI/Inter-UI-Medium.woff") format("woff");
+    url("../fonts/Inter-UI/Inter-UI-Medium.woff") format("woff");
 }
 @font-face {
-  font-family: 'Inter UI';
-  font-style:  italic;
+  font-family: "Inter UI";
+  font-style: italic;
   font-display: auto;
   font-weight: 600;
   src: url("../fonts/Inter-UI/Inter-UI-MediumItalic.woff2") format("woff2"),
-       url("../fonts/Inter-UI/Inter-UI-MediumItalic.woff") format("woff");
+    url("../fonts/Inter-UI/Inter-UI-MediumItalic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Inter UI';
-  font-style:  normal;
+  font-family: "Inter UI";
+  font-style: normal;
   font-display: auto;
   font-weight: 800;
   src: url("../fonts/Inter-UI/Inter-UI-Bold.woff2") format("woff2"),
-       url("../fonts/Inter-UI/Inter-UI-Bold.woff") format("woff");
+    url("../fonts/Inter-UI/Inter-UI-Bold.woff") format("woff");
 }
 @font-face {
-  font-family: 'Inter UI';
-  font-style:  italic;
+  font-family: "Inter UI";
+  font-style: italic;
   font-display: auto;
   font-weight: 800;
   src: url("../fonts/Inter-UI/Inter-UI-BoldItalic.woff2") format("woff2"),
-       url("../fonts/Inter-UI/Inter-UI-BoldItalic.woff") format("woff");
+    url("../fonts/Inter-UI/Inter-UI-BoldItalic.woff") format("woff");
+}
+
+// Bookerly
+
+@font-face {
+  font-family: "Bookerly";
+  font-style: normal;
+  font-display: auto;
+  font-weight: 400;
+  src: url("../fonts/Bookerly/Bookerly-Regular.woff2") format("woff2"),
+    url("../fonts/Bookerly/Bookerly-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Bookerly";
+  font-style: italic;
+  font-display: auto;
+  font-weight: 400;
+  src: url("../fonts/Bookerly/Bookerly-Italic.woff2") format("woff2"),
+    url("../fonts/Bookerly/Bookerly-Italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Bookerly";
+  font-style: normal;
+  font-display: auto;
+  font-weight: 800;
+  src: url("../fonts/Bookerly/Bookerly-Bold.woff2") format("woff2"),
+    url("../fonts/Bookerly/Bookerly-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Bookerly";
+  font-style: italic;
+  font-display: auto;
+  font-weight: 800;
+  src: url("../fonts/Bookerly/Bookerly-BoldItalic.woff2") format("woff2"),
+    url("../fonts/Bookerly/Bookerly-BoldItalic.woff") format("woff");
 }
