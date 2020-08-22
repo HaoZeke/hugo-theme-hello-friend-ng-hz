@@ -1,8 +1,8 @@
 {
-  "name": "hello-friend-ng",
+  "name": "hello-friend-ng-hz",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Djordje Atlialp <djordje@atlialp.com>",
+  "author": "Rohit Goswami <rg0swami@yahoo.com>",
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,8 +17,17 @@
     "node-sass": "^4.13.0"
   },
   "dependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-regenerator": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "add-dependencies": "^1.1.0",
     "autoprefixer": "^9.8.0",
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
+    "html-webpack-injector": "^1.1.4",
+    "html-webpack-plugin": "^4.3.0",
     "modern-normalize": "^1.0.0",
+    "normalize.css": "^8.0.1",
     "postcss": "^7.0.32",
     "postcss-cli": "^7.1.1",
     "postcss-color-function": "^4.1.0",
@@ -28,6 +37,9 @@
     "postcss-mixins": "^6.2.3",
     "postcss-nested": "^4.2.1",
     "postcss-simple-vars": "^5.0.2",
-    "postcss-typography": "^1.0.0"
+    "postcss-typography": "^1.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-concat-plugin": "3.0.0"
   }
 }
