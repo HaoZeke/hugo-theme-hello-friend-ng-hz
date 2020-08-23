@@ -1,8 +1,10 @@
+#toggleMenu {
+  background: none;
+}
+
 .menu {
   background: #fafafa;
   border-right: 1px solid;
-  margin-right: 18px;
-  z-index: 9999;
 
   .dark-theme & {
     background: #252627;
@@ -47,7 +49,6 @@
     width: 24px;
     height: 24px;
     fill: currentColor;
-    margin-left: 10px;
     cursor: pointer;
   }
 

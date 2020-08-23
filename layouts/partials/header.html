@@ -6,28 +6,30 @@
 
         {{ if .Site.Params.Search }}
         <div class="header__mid">
-        <div class="button">
+        <button class="button">
             <div class="button__text">
         <a href="{{ .Site.BaseURL }}/search" >
                 Search
         </a>
             </div>
-        </div>
+        </button>
         </div>
        {{ end }}
 
         <div class="header__right">
             {{ if len .Site.Menus }}
                 {{ partial "menu.html" . }}
+            <button id="toggleMenu">
                 <div class="menu-trigger">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M0 0h24v24H0z" fill="none"/>
                         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
                     </svg>
                 </div>
+             </button>
             {{ end }}
 
-            <div class="theme-toggle unselectable">{{ partial "theme-icon.html" . }}</div>
+            <button class="theme-toggle" id="toggleTheme">{{ partial "theme-icon.html" . }}</button>
         </div>
     </div>
 </header>

@@ -1,5 +1,6 @@
 // Mobile menu
 
+const menuButton = document.getElementById("toggleMenu");
 const menuTrigger = document.querySelector(".menu-trigger");
 const menu = document.querySelector(".menu");
 const mobileQuery = getComputedStyle(document.body).getPropertyValue("--phoneWidth");
@@ -10,6 +11,8 @@ const isMobileMenu = () => {
 };
 
 isMobileMenu();
+
+menuButton.addEventListener("click", () => menuTrigger.click());
 
 menuTrigger && menuTrigger.addEventListener("click", () => menu && menu.classList.toggle("hidden"));
 

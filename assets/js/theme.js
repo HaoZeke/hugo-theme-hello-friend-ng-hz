@@ -24,6 +24,8 @@ themeToggle.addEventListener("click", () => {
     : metaThemeColor.setAttribute("content", "#fafafa");
 });
 
+// TOC Inline style
+
 const tocToggle = document.getElementById("tocTog");
 const sideTOC = document.querySelector(".sideTOC");
 

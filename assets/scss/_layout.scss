@@ -40,12 +40,8 @@
   }
 
   &__mid {
-    max-width: 100%;
     .button {
-      min-width: em(80);
-      &__text {
-        min-width: em(80);
-      }
+      max-width: 100%;
     }
   }
 }
@@ -56,6 +52,10 @@
   justify-content: center;
   line-height: 1;
   cursor: pointer;
+}
+
+#toggleTheme {
+  background: none;
 }
 
 .theme-toggler {
