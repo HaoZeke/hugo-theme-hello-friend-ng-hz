@@ -1,11 +1,11 @@
 .container {
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto auto;
   grid-template-columns: 20fr 20fr 20fr 20fr var(--sidebar-width);
   grid-template-areas:
     "header header header header header"
-    ". main main . sidebar"
-    ". footer footer footer .";
+    "main main main main sidebar"
+    "footer footer footer footer footer";
 }
 .header {
   background: #fafafa;
@@ -71,8 +71,8 @@
 }
 
 .footer {
-  padding: 40px 20px;
   color: $light-color-secondary;
+  bottom: 0;
   grid-area: footer;
   justify-items: center;
   text-align: center;
@@ -109,5 +109,14 @@
   grid-column-start: 1;
   grid-column-end: 6;
   text-align-last: justify;
+  justify-self: center;
+}
+
+.homePage {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  text-align-last: center;
   justify-self: center;
 }
