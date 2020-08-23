@@ -1,7 +1,8 @@
 @import "css/modern-normalize";
 
+@import "mixins/mix";
+
 @import "variables";
-@import "mixins";
 @import "fonts";
 @import "buttons";
 @import "social-signs";
@@ -12,6 +13,7 @@
 @import "header";
 @import "logo";
 @import "menu";
+@import "typography";
 @import "main";
 @import "list";
 @import "single";

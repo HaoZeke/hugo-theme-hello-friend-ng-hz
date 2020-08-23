@@ -1,6 +1,7 @@
 @for $index from 1 through 6 {
   h#{$index} {
     font-family: $serif;
+    font-size: (2.625rem / $index);
   }
 }
 
