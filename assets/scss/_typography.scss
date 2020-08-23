@@ -69,3 +69,10 @@ a {
     }
   }
 }
+
+#search-query {
+  color: $link-color !important;
+  .dark-theme & {
+    border-bottom: darken($link-color, 15);
+  }
+}
