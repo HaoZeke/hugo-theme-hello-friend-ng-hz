@@ -34,7 +34,7 @@ tocToggle.addEventListener("click", function () {
     //   "was:",
     //   getComputedStyle(document.documentElement).getPropertyValue("--sidebar-width"),
     // );
-    document.documentElement.style.setProperty("--sidebar-width", "5fr");
+    document.documentElement.style.setProperty("--sidebar-width", "1fr");
     // console.log(
     //   "is",
     //   getComputedStyle(document.documentElement).getPropertyValue("--sidebar-width"),
