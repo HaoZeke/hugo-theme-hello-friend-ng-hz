@@ -29,7 +29,30 @@ $serif: Bookerly, Palatino, Book Antiqua, serif;
 $sans-serif: "Inter UI", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial,
   sans-serif;
 $mono: Hack, Consolas, Monaco, "Ubuntu Mono", Menlo, Consolas, monospace;
-$browser-context: 16;
+$browser-context: 16px;
+
+// Responsive Types
+// Weights
+$regular: 400;
+$bold: 800;
+
+// Sizes
+$base-text-xs: em(18); // required
+$base-text-sm: em(19);
+$base-text-md: em(20);
+$base-text-lg: em(21);
+$base-text-xl: em(22);
+
+// Color
+$default-color: rgb(40, 40, 40);
+
+// Headings
+$heading-base-size: 1.05em;
+$heading-scale-ratio: 1.333;
+
+// Line Heights
+$heading-line-height: 1;
+$body-line-height: 1.566;
 
 /* variables for js, must be the same as those in @custom-media queries */
 :root {
