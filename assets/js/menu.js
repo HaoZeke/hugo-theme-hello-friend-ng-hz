@@ -12,7 +12,11 @@ const isMobileMenu = () => {
 
 isMobileMenu();
 
-menuButton.addEventListener("click", () => menuTrigger.click());
+menuButton.addEventListener("click", function () {
+  if (isMobile()) {
+    menuTrigger.click();
+  }
+});
 
 menuTrigger && menuTrigger.addEventListener("click", () => menu && menu.classList.toggle("hidden"));
 
