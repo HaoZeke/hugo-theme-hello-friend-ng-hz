@@ -1,14 +1,18 @@
 <header class="header">
     <div class="header__inner">
+        <div class="header__left">
         {{ partial "logo.html" . }}
+        </div>
 
         {{ if .Site.Params.Search }}
+        <div class="header__mid">
         <div class="button">
             <div class="button__text">
         <a href="{{ .Site.BaseURL }}/search" >
                 Search
         </a>
             </div>
+        </div>
         </div>
        {{ end }}
 

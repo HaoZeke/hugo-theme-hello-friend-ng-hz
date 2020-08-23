@@ -1,20 +1,22 @@
 @import "css/modern-normalize";
+@import "lib/typographic";
 
 @import "mixins/mix";
+@import "functions/func";
 
 @import "variables";
 @import "fonts";
+@import "typography";
+@import "layout";
+
 @import "buttons";
 @import "social-signs";
 @import "syntax";
 @import "alerts";
 
 @import "search";
-@import "header";
 @import "logo";
 @import "menu";
-@import "typography";
 @import "main";
 @import "list";
 @import "single";
-@import "footer";

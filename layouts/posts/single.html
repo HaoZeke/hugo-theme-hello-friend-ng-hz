@@ -1,4 +1,16 @@
 {{ define "main" }}
+            {{- if .Params.toc }}
+                <!-- <hr /> -->
+    <aside class="sidebar">
+        <div class="hideTOC">
+        <button id="tocTog">TOC</button>
+        <div class="sideTOC m-fadeOut">
+            {{ .TableOfContents }}
+        </div>
+        </div>
+    </aside>
+                <!-- <hr /> -->
+            {{- end }}
     <main class="post">
 
         <div class="post-info">
@@ -25,7 +37,7 @@
 
             {{- if .Params.toc }}
                 <hr />
-                <aside id="toc">
+                <aside id="toc" class="sidebar">
                 <div class="toc-title">{{ i18n "tableOfContents" }}</div>
                     {{ .TableOfContents }}
                 </aside>

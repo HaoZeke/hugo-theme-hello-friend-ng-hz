@@ -8,10 +8,7 @@
         <div class="container">
             {{ partial "header.html" . }}
             {{ partial "mathjax.html" }}
-            <div class="content">
-                {{ block "main" . }}{{ end }}
-            </div>
-
+            {{ block "main" . }}{{ end }}
             {{ block "footer" . }}
                 {{ partial "footer.html" . }}
             {{ end }}
