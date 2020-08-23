@@ -57,30 +57,57 @@
   font-style: normal;
   font-display: auto;
   font-weight: 400;
-  src: url("../fonts/Bookerly/Bookerly-Regular.woff2") format("woff2"),
-    url("../fonts/Bookerly/Bookerly-Regular.woff") format("woff");
+  src: url("../fonts/Bookerly/Bookerly-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Bookerly";
   font-style: italic;
   font-display: auto;
   font-weight: 400;
-  src: url("../fonts/Bookerly/Bookerly-Italic.woff2") format("woff2"),
-    url("../fonts/Bookerly/Bookerly-Italic.woff") format("woff");
+  src: url("../fonts/Bookerly/Bookerly-Italic.woff") format("woff");
 }
 @font-face {
   font-family: "Bookerly";
   font-style: normal;
   font-display: auto;
   font-weight: 800;
-  src: url("../fonts/Bookerly/Bookerly-Bold.woff2") format("woff2"),
-    url("../fonts/Bookerly/Bookerly-Bold.woff") format("woff");
+  src: url("../fonts/Bookerly/Bookerly-Bold.woff") format("woff");
 }
 @font-face {
   font-family: "Bookerly";
   font-style: italic;
   font-display: auto;
   font-weight: 800;
-  src: url("../fonts/Bookerly/Bookerly-BoldItalic.woff2") format("woff2"),
-    url("../fonts/Bookerly/Bookerly-BoldItalic.woff") format("woff");
+  src: url("../fonts/Bookerly/Bookerly-BoldItalic.woff") format("woff");
+}
+
+// Bookerly
+
+@font-face {
+  font-family: "Hack";
+  font-style: normal;
+  font-display: auto;
+  font-weight: 400;
+  src: url("../fonts/Hack/Hack-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Hack";
+  font-style: italic;
+  font-display: auto;
+  font-weight: 400;
+  src: url("../fonts/Hack/Hack-Italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Hack";
+  font-style: normal;
+  font-display: auto;
+  font-weight: 800;
+  src: url("../fonts/Hack/Hack-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Hack";
+  font-style: italic;
+  font-display: auto;
+  font-weight: 800;
+  src: url("../fonts/Hack/Hack-BoldItalic.woff") format("woff");
 }
