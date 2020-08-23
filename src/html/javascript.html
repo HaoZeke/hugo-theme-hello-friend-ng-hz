@@ -1,0 +1,41 @@
+{{ $main := resources.Get "js/main.bundle.js" }}
+{{ $menu := resources.Get "js/menu.bundle.js" }}
+{{ $theme := resources.Get "js/theme.bundle.js" }}
+{{ $codefold := resources.Get "js/codefold.bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+<script src="<%= htmlWebpackPlugin%>" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
+{{- if .Site.GoogleAnalytics }}
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '{{.Site.GoogleAnalytics}}', 'auto');ga('send', 'pageview');
+    </script>
+{{- end}}
+
+{{- if .Site.Params.GoatCounter }}
+<script data-goatcounter="https://{{.Site.Params.GoatCounter}}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{{- end}}
+
+{{- if .Site.Params.Clicky }}
+<script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push({{.Site.Params.Clicky}});</script>
+<script async src="https://static.getclicky.com/js"></script>
+{{- end}}
+
+{{- if .Site.Params.Prism }}
+<script src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.20.0,npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+{{- end}}
+
+{{- if .Site.Params.Codefold }}
+<script src="https://cdn.jsdelivr.net/npm/readmore-js@3.0.0-beta-1/dist/readmore.min.js"></script>
+<script async src="{{ $codefold.RelPermalink }}" integrity="{{ $codefold.Data.Integrity }}" ></script>
+{{- end}}
+
+{{ range $val := $.Site.Params.customJS }}
+	{{ if gt (len $val) 0 }}
+		<script src="{{ $val }}"></script>
+	{{ end }}
+{{ end }}
+
