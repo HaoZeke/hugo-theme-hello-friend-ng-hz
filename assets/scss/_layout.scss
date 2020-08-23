@@ -1,10 +1,10 @@
 .container {
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-template-columns: 20fr 20fr 20fr 20fr var(--sidebar-width);
+  grid-template-columns: minmax(var(--sidebar-width), 20fr) 20fr 20fr 20fr var(--sidebar-width);
   grid-template-areas:
     "header header header header header"
-    "main main main main sidebar"
+    ". main main main sidebar"
     "footer footer footer footer footer";
 }
 .header {
@@ -121,4 +121,8 @@
   justify-self: center;
   margin-top: 18vh;
   margin-bottom: 18vh;
+}
+
+.search {
+  grid-area: main;
 }
