@@ -50,3 +50,17 @@ blockquote {
     background: $dark-border-color;
   }
 }
+
+a {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.post-content {
+  a {
+    border-bottom: $link-color 0.125em solid;
+    .dark-theme & {
+      border-bottom: darken($link-color, 15) 0.125em solid;
+    }
+  }
+}
