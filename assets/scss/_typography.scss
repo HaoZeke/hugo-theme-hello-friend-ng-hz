@@ -1,0 +1,51 @@
+@for $index from 1 through 6 {
+  h#{$index} {
+    font-family: $serif;
+  }
+}
+
+body {
+  font-family: $sans-serif;
+}
+
+code {
+  font-family: $mono;
+}
+
+// Modified from: https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+
+  @media #{$media-size-phone} {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  &:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  p {
+    display: inline;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .dark-theme & {
+    background: $dark-border-color;
+  }
+}
