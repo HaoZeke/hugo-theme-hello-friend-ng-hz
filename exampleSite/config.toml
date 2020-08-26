@@ -96,6 +96,9 @@ theme = "photon-dark"
 repo  ="haozeke/hello-friend-ng-hz"
 label = "Utterance 💬"
 
+# [params.intensedebate]
+# accountID = ""
+
   # Colors for favicons
   [params.favicon.color]
     mask = "#252627"

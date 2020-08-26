@@ -2,4 +2,6 @@
     {{ template "_internal/disqus.html" . }}
 {{- else if .Site.Params.Utterances }}
     {{ partial "utterances.html" . }}
+{{- else if .Site.Params.IntenseDebate }}
+    {{ partial "intensedebate.html" . }}
 {{- end }}
