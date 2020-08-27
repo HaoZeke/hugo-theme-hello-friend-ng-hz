@@ -25,6 +25,11 @@
     }
   }
 
+  &__404 {
+    width: revert;
+    text-align: center;
+  }
+
   &-list {
     flex-grow: 1;
     margin: 0;
