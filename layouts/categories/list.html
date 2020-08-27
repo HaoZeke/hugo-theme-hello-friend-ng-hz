@@ -1,6 +1,5 @@
 {{ define "main" }}
-<div class="container listCont">
-    <main class="posts listCont">
+    <main class="posts">
 
         {{- if .Content }}
             <div class="content">{{ .Content }}</div>
@@ -56,5 +55,4 @@
     </main>
     {{ partial "pagelist.html" . }}
 {{ end }}
-    </div>
 {{ end }}

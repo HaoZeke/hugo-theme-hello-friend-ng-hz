@@ -1,10 +1,11 @@
 .container {
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-columns: auto 20fr 20fr 20fr var(--sidebar-width);
   grid-template-areas:
     "header header header header header"
     ". main main main sidebar"
+    ". comment comment comment ."
     "footer footer footer footer footer";
 }
 .header {
@@ -66,8 +67,10 @@
   user-select: none;
 }
 
-.post {
+.post,
+.posts {
   grid-area: main;
+  justify-self: center;
 }
 
 .footer {
@@ -93,9 +96,10 @@
 }
 
 .listCont {
-  grid-row: 2;
-  grid-column-start: 1;
-  grid-column-end: 6;
+  grid-area: main;
+  // grid-row: 2;
+  // grid-column-start: 1;
+  // grid-column-end: 6;
 }
 
 .m-fadeOut {
@@ -105,9 +109,7 @@
 }
 
 .navPagi {
-  grid-row: 4;
-  grid-column-start: 1;
-  grid-column-end: 6;
+  grid-area: comment;
   text-align-last: justify;
   justify-self: center;
 }
@@ -125,4 +127,40 @@
 
 .search {
   grid-area: main;
+}
+
+#comments {
+  grid-area: comment;
+  .dark-theme & {
+    .idc-text_noresize,
+    .idc-text {
+      background: $dark-background !important;
+      color: $dark-color-secondary !important;
+      font-size: $base-text-xs;
+
+      @if (variable-exists($name: base-text-sm)) {
+        @include mq($sm) {
+          font-size: $base-text-sm;
+        }
+      }
+
+      @if (variable-exists($name: base-text-md)) {
+        @include mq($md) {
+          font-size: $base-text-md;
+        }
+      }
+
+      @if (variable-exists($name: base-text-lg)) {
+        @include mq($lg) {
+          font-size: $base-text-lg;
+        }
+      }
+
+      @if (variable-exists($name: base-text-xl)) {
+        @include mq($xl) {
+          font-size: $base-text-xl;
+        }
+      }
+    }
+  }
 }
