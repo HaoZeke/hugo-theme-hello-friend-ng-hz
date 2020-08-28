@@ -1,6 +1,6 @@
 # Hello Friend NG-HZ
 
-![Hello Friend NG -- HZ edition](https://dsh.re/d27822)
+A good way to see the capabilities of this theme [is this site](https://rgoswami.me).
 
 ## General informations
 
@@ -9,11 +9,12 @@ This theme was highly inspired by the [hello-friend](https://github.com/panr/hug
 ## Features
 
 - Theming: **dark/light mode**, depending on your preferences (dark is default, but you can change it)
-- Great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/)
+- Great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/) and also Hack
 - Hugo native code highlighting
 - An easy way to modify the theme with Hugo tooling
 - Fully responsive
 - Support for social icons
+- Supports multiple authors and listings
 
 ## How to start
 
