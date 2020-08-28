@@ -46,6 +46,7 @@ disableHugoGeneratorInject = false
 [taxonomies]
   tag      = "tags"
   category = "categories"
+  author   = "author"
 
 [params]
   dateform        = "Jan 2, 2006"

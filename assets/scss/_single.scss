@@ -81,6 +81,11 @@
       }
     }
 
+    .author {
+      margin-right: 0.5em;
+      margin-left: -0.5em;
+    }
+
     .feather {
       display: inline-block;
       vertical-align: -0.125em;
@@ -196,5 +201,17 @@
 
   &.previous .button__icon {
     margin-right: 8px;
+  }
+}
+
+.author__bio {
+  text-align: center;
+  min-width: 5vw;
+  margin-left: 2vw;
+  a {
+    border-bottom: $link-color 0.125em solid;
+    .dark-theme & {
+      border-bottom: darken($link-color, 15) 0.125em solid;
+    }
   }
 }

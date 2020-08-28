@@ -1,0 +1,56 @@
+{{ define "main" }}
+
+{{ $author := index .Site.Data.authors .Params.Title }}
+
+<script type="text/javascript">
+ document.documentElement.style.setProperty("--sidebar-width", "10fr");
+</script>
+
+
+<div class="sidebar">
+    <div class="author__bio">
+    <h2>Bio</h2>
+    {{- if $author.photo }}
+    <img src="{{ $author.photo }}" alt="" class="author__img"/>
+    {{ else }}
+    <img src="https://www.caretechfoundation.org.uk/wp-content/uploads/anonymous-person-221117.jpg" alt="" class="author__img"/>
+    {{- end}}
+    {{ if $author.bio }}
+    {{ $author.bio | markdownify }}
+    {{ else }}
+    {{ "This is a **mistake**." | markdownify }}
+    {{ end }}
+
+    {{ if $author.social.twitter }}
+    <p>
+        Follow on {{$author.name}} Twitter <a href="https://twitter.com/@{{ $author.social.twitter }}"> (@{{ $author.social.twitter }})</a>
+    </p>
+    {{ end }}
+    </div>
+</div>
+
+    <main class="posts">
+        <h1> {{ $author.name | or .Title }} </h1>
+<h2>Articles Created</h2>
+
+        {{- if .Content }}
+            <div class="content">{{ .Content }}</div>
+        {{- end }}
+            {{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups  }}
+            <div class="posts-group">
+                <div class="post-year">{{ .Key }}</div>
+                <ul class="posts-list">
+                    {{- range .Pages }}
+                        <li class="post-item">
+                            <a href="{{.Permalink}}">
+                                <span class="post-title">{{.Title}}</span>
+                                <span class="post-day">{{ if .Site.Params.dateformShort }}{{ .Date.Format .Site.Params.dateformShort }}{{ else }}{{ .Date.Format "Jan 2"}}{{ end }} ({{ .ReadingTime }} min.)  </span>
+                            </a>
+                        </li>
+                    {{- end }}
+                </ul>
+            </div>
+        {{- end }}
+    </main>
+    {{ partial "pagelist.html" . }}
+{{ end }}

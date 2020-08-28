@@ -1,0 +1,34 @@
+{{ define "main" }}
+    <main class="posts">
+        <h1>Authors</h1>
+
+        {{- if .Content }}
+            <div class="content">{{ .Content }}</div>
+        {{- end }}
+
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupByDate "2006" -}}
+            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+            {{- range $pages.PageGroups -}}
+            <div class="posts-group">
+                <div class="post-year">{{ .Key }}</div>
+                <ul class="posts-list">
+                {{- range .Pages -}}
+                        <li class="post-item">
+                            <a href="{{.Permalink}}">
+                                <span class="post-title">{{.Title}}</span>
+                                <span class="post-day">{{ if .Site.Params.dateformShort }}{{ .Date.Format .Site.Params.dateformShort }}{{ else }}{{ .Date.Format "Jan 2"}}{{ end }} ({{ .ReadingTime }} min.)  </span>
+                            </a>
+                        </li>
+                {{- end -}}
+                </ul>
+            {{- end -}}
+            </div>
+        {{- end }}
+    </main>
+    {{ partial "pagelist.html" . }}
+{{ end }}
