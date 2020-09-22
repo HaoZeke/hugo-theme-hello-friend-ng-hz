@@ -6,4 +6,6 @@
     {{ partial "intensedebate.html" . }}
 {{- else if .Site.Params.GraphComments }}
     {{ partial "graphcomments.html" . }}
+{{- else if .Site.Params.CommentBox }}
+    {{ partial "commentbox.html" . }}
 {{- end }}

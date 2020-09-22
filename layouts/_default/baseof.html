@@ -8,6 +8,9 @@
         <div class="container">
             {{ partial "header.html" . }}
             {{ partial "mathjax.html" }}
+            {{- if .Site.Params.CommentBox }}
+            <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+            {{- end }}
             {{ block "main" . }}{{ end }}
             {{ block "footer" . }}
                 {{ partial "footer.html" . }}
