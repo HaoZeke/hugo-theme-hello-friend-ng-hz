@@ -4,4 +4,6 @@
     {{ partial "utterances.html" . }}
 {{- else if .Site.Params.IntenseDebate }}
     {{ partial "intensedebate.html" . }}
+{{- else if .Site.Params.Graphcomments }}
+    {{ partial "graphComments.html" . }}
 {{- end }}
