@@ -1,0 +1,15 @@
+.comment-box {
+  background-color: $light-background;
+  color: $light-color;
+  text-rendering: optimizeLegibility;
+  &.dark-theme {
+    background-color: $dark-background;
+    color: $dark-color;
+  }
+  .header {
+    color: $light-color;
+    &.dark-theme {
+      color: $dark-color;
+    }
+  }
+}
