@@ -181,6 +181,7 @@ Use [RealFaviconGenerator](https://realfavicongenerator.net/) to generate these 
 - twitch
 - twitter
 - youtube
+- goodreads
 
 If you need another one, just open an issue or create a pull request with your wished icon. :)
 
