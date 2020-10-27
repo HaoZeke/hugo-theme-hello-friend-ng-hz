@@ -10,5 +10,8 @@
             {{ .Site.Copyright| safeHTML }}
             Powered by <a href="http://gohugo.io">Hugo</a>.</br>
             Theme <a href="https://rgoswami.me/posts/rationale/">details here</a>.</br>
+                {{ if .Site.Params.Liberapay }}
+                {{ partial "liberapay.html" . }}
+                {{ end }}
     </p>
 </footer>

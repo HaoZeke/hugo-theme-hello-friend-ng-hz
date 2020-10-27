@@ -15,6 +15,7 @@ This theme was highly inspired by the [hello-friend](https://github.com/panr/hug
 - Fully responsive
 - Support for social icons
 - Supports multiple authors and listings
+- Includes Liberapay
 
 ## How to start
 
