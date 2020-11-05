@@ -98,9 +98,14 @@ theme = "photon-dark"
 repo  ="haozeke/hello-friend-ng-hz"
 label = "Utterance 💬"
 
-# [params.intensedebate]
-# accountID = ""
+[params.liberapay]
+accountID = "rohit"
 
+# [params.graphcomments]
+# accountID = "rgoswami"
+
+# [params.commentbox]
+# accountID = "5662446949761024-proj"
   # Colors for favicons
   [params.favicon.color]
     mask = "#252627"
