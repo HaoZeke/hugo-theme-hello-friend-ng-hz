@@ -9,7 +9,7 @@
 {{ $codefoldsetup := resources.Get "js/codefold.js" }}
 {{ $codefold := slice $readmore $codefoldsetup | resources.Concat "codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
 
-<script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+<script src="{{ $secureJS.RelPermalink }}"></script>
 
 {{- if .Site.GoogleAnalytics }}
     <script>
@@ -45,7 +45,7 @@
 {{- end}}
 
 {{- if .Site.Params.Codefold }}
-<script src="{{ $codefold.RelPermalink }}" integrity="{{ $codefold.Data.Integrity }}" ></script>
+<script src="{{ $codefold.RelPermalink }}"></script>
 {{- end}}
 
 {{ range $val := $.Site.Params.customJS }}
