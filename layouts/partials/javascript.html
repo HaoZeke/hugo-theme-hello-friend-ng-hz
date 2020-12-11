@@ -1,15 +1,9 @@
-<!-- Base Theme -->
 {{ $main := resources.Get "js/main.js" }}
 {{ $menu := resources.Get "js/menu.js" }}
 {{ $theme := resources.Get "js/theme.js" }}
+{{ $codefold := resources.Get "js/codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
-
-<!-- NPM Dependent -->
-{{ $readmore := resources.Get "js/npm/readmore/readmore.min.js" }}
-{{ $codefoldsetup := resources.Get "js/codefold.js" }}
-{{ $codefold := slice $readmore $codefoldsetup | resources.Concat "codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
-
-<script src="{{ $secureJS.RelPermalink }}"></script>
+<script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous"></script>
 
 {{- if .Site.GoogleAnalytics }}
     <script>
@@ -45,7 +39,8 @@
 {{- end}}
 
 {{- if .Site.Params.Codefold }}
-<script src="{{ $codefold.RelPermalink }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/readmore-js@3.0.0-beta-1/dist/readmore.min.js"></script>
+<script src="{{ $codefold.RelPermalink }}" integrity="{{ $codefold.Data.Integrity }}" crossorigin="anonymous"></script>
 {{- end}}
 
 {{ range $val := $.Site.Params.customJS }}
