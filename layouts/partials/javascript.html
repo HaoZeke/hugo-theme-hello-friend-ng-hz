@@ -3,7 +3,7 @@
 {{ $theme := resources.Get "js/theme.js" }}
 {{ $codefold := resources.Get "js/codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
-<script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="{{ $secureJS.RelPermalink }}"></script>
 
 {{- if .Site.GoogleAnalytics }}
     <script>
@@ -40,7 +40,7 @@
 
 {{- if .Site.Params.Codefold }}
 <script src="https://cdn.jsdelivr.net/npm/readmore-js@3.0.0-beta-1/dist/readmore.min.js"></script>
-<script src="{{ $codefold.RelPermalink }}" integrity="{{ $codefold.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="{{ $codefold.RelPermalink }}"></script>
 {{- end}}
 
 {{ range $val := $.Site.Params.customJS }}
