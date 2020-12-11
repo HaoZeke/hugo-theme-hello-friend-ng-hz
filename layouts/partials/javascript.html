@@ -1,8 +1,14 @@
+<!-- Base Theme -->
 {{ $main := resources.Get "js/main.js" }}
 {{ $menu := resources.Get "js/menu.js" }}
 {{ $theme := resources.Get "js/theme.js" }}
-{{ $codefold := resources.Get "js/codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+
+<!-- NPM Dependent -->
+{{ $readmore := resources.Get "js/npm/readmore/readmore.min.js" }}
+{{ $codefoldsetup := resources.Get "js/codefold.js" }}
+{{ $codefold := slice $readmore $codefoldsetup | resources.Concat "codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
+
 <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
 {{- if .Site.GoogleAnalytics }}
