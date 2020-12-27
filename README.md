@@ -4,22 +4,35 @@ A good way to see the capabilities of this theme [is this site](https://rgoswami
 
 ## General informations
 
-This theme was highly inspired by the [hello-friend](https://github.com/panr/hugo-theme-hello-friend), [hermit](https://github.com/Track3/hermit) and the [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng/) theme. A lot of kudos for theier great work.
+This theme was highly inspired by the excellent [hello-friend](https://github.com/panr/hugo-theme-hello-friend), [hermit](https://github.com/Track3/hermit) and [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng/) themes.
 
 ## Features
 
 - Theming: **dark/light mode**, depending on your preferences (dark is default, but you can change it)
-- Great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/) and also Hack
+- Great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/) and also Hack along with Bookerly and Geomanist
 - Hugo native code highlighting
 - An easy way to modify the theme with Hugo tooling
 - Fully responsive
 - Support for social icons
 - Supports multiple authors and listings
-- Includes Liberapay
+- Includes [Liberapay](https://liberapay.com/)
+- Codefolding
+- Author specific pages to support multiple authors
+- Categories and tags with word-clouds
+- Various Comment systems
+  - [Utterances](https://github.com/utterance/utterances)
+  - [Graphcomments](https://graphcomment.com/en/)
+  - [CommentBox](https://commentbox.io/)
+  - [Disqus](https://disqus.com/)
+- Multiple Analytics Trackers
+  - [Google](https://analytics.google.com/analytics/web/)
+  - [Microsoft Clarity](https://clarity.microsoft.com/)
+  - [GoatCounter](https://www.goatcounter.com/)
+  - [Clicky](https://clicky.com/)
 
 ## How to start
 
-You can download the theme manually by going to [https://github.com/rhazdon/hugo-theme-hello-friend-ng.git](https://github.com/rhazdon/hugo-theme-hello-friend-ng.git) and pasting it to `themes/hello-friend-ng` in your root directory.
+You can download the theme manually by going to [https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz.git](https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz.git) and pasting it to `themes/hello-friend-ng-hz` in your root directory.
 
 You can also clone it directly to your Hugo folder:
 
@@ -41,7 +54,7 @@ Note: There are more options to configure. Take a look into the `config.toml` in
 ```toml
 baseurl = "/"
 languageCode = "en-us"
-theme = "hello-friend-ng"
+theme = "hello-friend-ng-hz"
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -91,7 +104,7 @@ theme = "hello-friend-ng"
 From your Hugo root directory run:
 
 ```
-$ hugo server -t hello-friend-ng
+$ hugo server -t hello-friend-ng-hz
 ```
 
 and go to `localhost:1313` in your browser. From now on all the changes you make will go live, so you don't need to refresh your browser every single time.
@@ -183,8 +196,12 @@ Use [RealFaviconGenerator](https://realfavicongenerator.net/) to generate these 
 - twitter
 - youtube
 - goodreads
+- calendly
+- google scholar
+- orcid
+- publons
 
-If you need another one, just open an issue or create a pull request with your wished icon. :)
+If you need another one, just open an issue or create a pull request with the desired icon. :)
 
 ## Known issues
 
@@ -225,6 +242,7 @@ ln -s $NODE_PATH node_modules
 ## Licence
 
 Copyright © 2020--present Rohit Goswami
+
 Copyright © 2019-2020 Djordje Atlialp
 
 The theme is released under the MIT License. Check the [original theme license](https://github.com/rhazdon/hugo-theme-hello-friend-ng/blob/master/LICENSE.md) for additional licensing information.

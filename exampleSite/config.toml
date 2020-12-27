@@ -1,9 +1,9 @@
 baseURL = "https://example.com"
-title   = "Hello Friend NG"
+title   = "Hello Friend NG HZ"
 
 DefaultContentLanguage = "en"
 
-theme = "hello-friend-ng"
+theme = "hello-friend-ng-hz"
 
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
@@ -54,22 +54,12 @@ disableHugoGeneratorInject = false
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
 
-  # Alternative to Google Analytics
-  goatCounter = ""
-# microsoftClarity = ""
-  # Another analytics alternative
-  clicky = ""
-  # Syntax highlighting
-  prism = false # Use hugo logic by default
-  # Use codefolding logic
-  codefold = true
-
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"
   keywords = ""
   images = [""]
 
-  homeSubtitle = "Hello Friend NG"
+  homeSubtitle = "Hello Friend NG HZ"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   # gitUrl = ""
@@ -92,20 +82,47 @@ disableHugoGeneratorInject = false
   defaultTheme = "dark"
   themeColor = "#252627"
 
+#############
+# Analytics #
+#############
+   
+  # Alternative to Google Analytics
+  goatCounter = ""
+  # microsoftClarity = ""
+  # Another analytics alternative
+  # clicky = ""
+
+########
+# Code #
+########
+
+  # Syntax highlighting
+  prism = false # Use hugo logic by default
+  # Use codefolding logic
+  codefold = true
+
+[params.liberapay]
+accountID = "rohit"
+
+###################
+# Comment Systems #
+###################
+
 [params.utterances]
 issue = "pathname"
 theme = "photon-dark"
 repo  ="haozeke/hello-friend-ng-hz"
 label = "Utterance 💬"
 
-[params.liberapay]
-accountID = "rohit"
-
 # [params.graphcomments]
 # accountID = "rgoswami"
 
 # [params.commentbox]
 # accountID = "5662446949761024-proj"
+
+# [params.intensedebate]
+# accountID = "03433eb5474ac59759898fb85454590c"
+
   # Colors for favicons
   [params.favicon.color]
     mask = "#252627"
@@ -125,7 +142,7 @@ accountID = "rohit"
   # Social icons
   [[params.social]]
     name = "twitter"
-    url  = "https://twitter.com/"
+    url  = "https://twitter.com/someone"
 
   [[params.social]]
     name = "mastodon"
@@ -137,10 +154,6 @@ accountID = "rohit"
     url  = "mailto:nobody@example.com"
 
   [[params.social]]
-    name = "github"
-    url  = "https://github.com/"
-
-  [[params.social]]
     name = "linkedin"
     url  = "https://www.linkedin.com/"
 
@@ -148,14 +161,42 @@ accountID = "rohit"
     name = "stackoverflow"
     url  = "https://www.stackoverflow.com/"
 
+  [[params.social]]
+    name = "keybase"
+    url  = "https://keybase.io/person"
+
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/personanon"
+
+  [[params.social]]
+    name = "goodreads"
+    url  = "https://www.goodreads.com/user/show/userid"
+
+  [[params.social]]
+    name = "googlescholar"
+    url  = "https://scholar.google.co.in/citations?user=USER_ID"
+
+  [[params.social]]
+    name = "orcid"
+    url  = "https://orcid.org/orcid_id"
+
+  [[params.social]]
+    name = "publons"
+    url  = "https://publons.com/researcher/ID"
+
+  [[params.social]]
+    name = "calendly"
+    url  = "https://calendly.com/scheduler"
+
 [languages]
   [languages.en]
-    subtitle  = "Hello Friend NG Theme"
+    subtitle  = "Hello Friend NG HZ Theme"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
   [languages.fr]
-    subtitle  = "Hello Friend NG Theme"
+    subtitle  = "Hello Friend NG HZ Theme"
     weight    = 2
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
