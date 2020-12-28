@@ -1,0 +1,3 @@
+[submodule "getwms"]
+	path = getwms
+	url = https://github.com/Deluvi/getwms
