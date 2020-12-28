@@ -1,0 +1,35 @@
+name: Test theme
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * *" # every day https://crontab.guru/
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: cachix/install-nix-action@v12
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Get and initialize binary cache
+        run: |
+          nix-env -iA cachix -f https://cachix.org/api/v1/install
+          cachix use hello-friend-ng-hz
+
+      - name: Test Build
+        run: nix-shell --run "hugo -s exampleSite --themesDir=../.."
+
+      - name: Cache Nix Results
+        env:
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          cachixName: hello-friend-ng-hz
+        run: |
+          cachix authtoken $authToken
+          nix-store -qR --include-outputs $(nix-instantiate shell.nix) | cachix push $cachixName
