@@ -81,7 +81,7 @@
   src: url("../fonts/Bookerly/Bookerly-BoldItalic.woff") format("woff");
 }
 
-// Bookerly
+// Hack
 
 @font-face {
   font-family: "Hack";
@@ -110,4 +110,79 @@
   font-display: auto;
   font-weight: 800;
   src: url("../fonts/Hack/Hack-BoldItalic.woff") format("woff");
+}
+
+// Geomanist
+// From https://github.com/vasilenka/ucp-ssr/tree/master/src/app/assets/fonts/geomanist
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Thin.woff") format("woff");
+  font-display: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-ExtraLight.woff") format("woff");
+  font-display: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Light.woff") format("woff");
+  font-display: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Regular.woff") format("woff");
+  font-display: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Book.woff") format("woff");
+  font-display: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Medium.woff") format("woff");
+  font-display: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Bold.woff") format("woff");
+  font-display: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Black.woff") format("woff");
+  font-display: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geomanist";
+  src: url("../fonts/Geomanist/Geomanist-Ultra.woff") format("woff");
+  font-display: auto;
+  font-weight: 900;
+  font-style: normal;
 }
