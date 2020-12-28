@@ -108,3 +108,4 @@ dist
 
 # More generated files
 exampleSite/resources/_gen/
+exampleSite/public/
