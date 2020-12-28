@@ -22,6 +22,7 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
 - Author specific pages to support multiple authors
 - Categories and tags with word-clouds
 - Nix build system for hermetic builds
+- Webmention support
 - Various Comment systems
   - [Utterances](https://github.com/utterance/utterances)
   - [Graphcomments](https://graphcomment.com/en/)

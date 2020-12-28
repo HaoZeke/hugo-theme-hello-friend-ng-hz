@@ -83,6 +83,14 @@ disableHugoGeneratorInject = false
   defaultTheme = "dark"
   themeColor = "#252627"
 
+###############
+# Webmentions #
+###############
+# Manually setup webmention.js from here: https://sebastiandedeyne.com/webmentions-on-a-static-site-with-github-actions/
+[params.webmention]
+webmention = "https://webmention.io/example.com/webmention"
+pingback = "https://webmention.io/example.com/xmlrpc"
+
 #############
 # Analytics #
 #############

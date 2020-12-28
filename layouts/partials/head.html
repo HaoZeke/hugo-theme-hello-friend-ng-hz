@@ -36,6 +36,12 @@
 <link href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 {{- end}}
 
+<!-- Webmention -->
+{{ if .Site.Params.Webmention }}
+    <link rel="webmention" href="{{ .Site.Params.Webmention.webmention }}" />
+    <link rel="pingback" href="{{ .Site.Params.Webmention.pingback }}" />
+{{ end }}
+
 <!-- Icons -->
 {{- partial "favicons.html" . }}
 
