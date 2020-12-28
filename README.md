@@ -21,6 +21,7 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
 - Codefolding
 - Author specific pages to support multiple authors
 - Categories and tags with word-clouds
+- Nix build system for hermetic builds
 - Various Comment systems
   - [Utterances](https://github.com/utterance/utterances)
   - [Graphcomments](https://graphcomment.com/en/)
@@ -31,14 +32,6 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
   - [Microsoft Clarity](https://clarity.microsoft.com/)
   - [GoatCounter](https://www.goatcounter.com/)
   - [Clicky](https://clicky.com/)
-
-## Local tests
-
-You can test changes to the example site in realtime by simply running the following from the theme directory:
-
-```bash
-hugo server -s exampleSite --themesDir=../..
-```
 
 ## How to start
 
