@@ -9,7 +9,9 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
 ## Features
 
 - Theming: **dark/light mode**, depending on your preferences (dark is default, but you can change it)
-- Great reading experience thanks to [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/) and also Hack along with Bookerly and Geomanist
+- Great reading experience
+  - (Default stack) [Bookerly](https://en.wikipedia.org/wiki/Bookerly), [Geomanist](https://www.atipofoundry.com/fonts/geomanist) and [Cascadia](https://github.com/microsoft/cascadia-code)
+  - (Alternative) [Bookerly](https://en.wikipedia.org/wiki/Bookerly) with [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/) and [Hack](https://sourcefoundry.org/hack/)
 - Hugo native code highlighting
 - An easy way to modify the theme with Hugo tooling
 - Fully responsive

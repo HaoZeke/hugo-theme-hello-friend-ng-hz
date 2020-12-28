@@ -112,6 +112,37 @@
   src: url("../fonts/Hack/Hack-BoldItalic.woff") format("woff");
 }
 
+// Cascadia
+
+@font-face {
+  font-family: "Cascadia";
+  font-style: normal;
+  font-display: auto;
+  font-weight: 400;
+  src: url("../fonts/Cascadia/CascadiaCodePL-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cascadia";
+  font-style: italic;
+  font-display: auto;
+  font-weight: 400;
+  src: url("../fonts/Cascadia/CascadiaCodePL-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cascadia";
+  font-style: normal;
+  font-display: auto;
+  font-weight: 800;
+  src: url("../fonts/Cascadia/CascadiaCodePL-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cascadia";
+  font-style: normal;
+  font-display: auto;
+  font-weight: 600;
+  src: url("../fonts/Cascadia/CascadiaCodePL-SemiBold.woff2") format("woff2");
+}
+
 // Geomanist
 // From https://github.com/vasilenka/ucp-ssr/tree/master/src/app/assets/fonts/geomanist
 
