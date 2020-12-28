@@ -1,0 +1,21 @@
+<!-- From https://deluvi.com/blog/webmention/-->
+{{ range . }}
+{{ if eq .mention_type "mention" }}
+<div class="mention"><a href="{{ .author.url }}">{{ .author.name }}</a> mentionned this post in <a href="{{ .url }}">the post {{  .title }}</a></div>
+{{ end }}
+{{ if eq .mention_type "like" }}
+<div class="like"><a href="{{ .author.url }}">{{ .author.name }}</a> <a href="{{ .url }}">liked</a></div>
+{{ end }}
+{{ if eq .mention_type "reply" }}
+<div class="reply"><a href="{{ .author.url }}">{{ .author.name }}</a> replied to this post <a href="{{ .url }}">here</a></div>
+{{ end }}
+{{ if eq .mention_type "bookmark" }}
+<div class="bookmark"><a href="{{ .author.url }}">{{ .author.name }}</a> bookmarked this post</div>
+{{ end }}
+{{ if eq .mention_type "repost" }}
+<div class="repost"><a href="{{ .author.url }}">{{ .author.name }}</a> <a href="{{ .url }}">reposted</a> this article</div>
+{{ end }}
+{{ if eq .mention_type "rsvp" }}
+<div class="rsvp"><a href="{{ .author.url }}">{{ .author.name }}</a> responded to the rsvp <a href="{{ .url }}">here</a></div>
+{{ end }}
+{{ end }}

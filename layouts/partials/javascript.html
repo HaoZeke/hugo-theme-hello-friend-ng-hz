@@ -2,6 +2,7 @@
 {{ $menu := resources.Get "js/menu.js" }}
 {{ $theme := resources.Get "js/theme.js" }}
 {{ $codefold := resources.Get "js/codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $webmention := resources.Get "js/webmention.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script src="{{ $secureJS.RelPermalink }}"></script>
 
@@ -41,6 +42,10 @@
 {{- if .Site.Params.Codefold }}
 <script src="https://cdn.jsdelivr.net/npm/readmore-js@3.0.0-beta-1/dist/readmore.min.js"></script>
 <script src="{{ $codefold.RelPermalink }}"></script>
+{{- end}}
+
+{{- if .Site.Params.Webmention }}
+<script src="{{ $webmention.RelPermalink }}" data-id="webmention-container"></script>
 {{- end}}
 
 {{ range $val := $.Site.Params.customJS }}
