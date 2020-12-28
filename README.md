@@ -30,6 +30,14 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
   - [GoatCounter](https://www.goatcounter.com/)
   - [Clicky](https://clicky.com/)
 
+## Local tests
+
+You can test changes to the example site in realtime by simply running the following from the theme directory:
+
+```bash
+hugo server -s exampleSite --themesDir=../..
+```
+
 ## How to start
 
 You can download the theme manually by going to [https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz.git](https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz.git) and pasting it to `themes/hello-friend-ng-hz` in your root directory.

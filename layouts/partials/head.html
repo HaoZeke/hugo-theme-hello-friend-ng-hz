@@ -40,7 +40,9 @@
 {{- partial "favicons.html" . }}
 
 {{- template "_internal/schema.html" . }}
+{{- if not .Site.Params.isTheme }}
 {{- template "_internal/opengraph.html" . }}
+{{- end}}
 {{- template "_internal/twitter_cards.html" . }}
 
 {{ range .Params.categories }}

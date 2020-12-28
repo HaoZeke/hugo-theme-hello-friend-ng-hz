@@ -106,4 +106,5 @@ dist
 # TernJS port file
 .tern-port
 
-
+# More generated files
+exampleSite/resources/_gen/
