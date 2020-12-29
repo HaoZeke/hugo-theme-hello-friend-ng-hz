@@ -114,7 +114,7 @@
 
         {{ if .Site.Params.Webmention }}
             <div class="webmention-form">
-                <form action="https://webmention.io/{{ .Site.BaseURL }}/webmention" method="post">
+                <form action="https://webmention.io/{{ (urls.Parse .Site.BaseURL).Host }}/webmention" method="post">
                     <label>Did you mention this article on your website? Put the URL of your post here:</label><br/>
                     <input name="source" type="url"/>
                     <input name="target" value="{{ .Permalink }}" type="hidden"/>
