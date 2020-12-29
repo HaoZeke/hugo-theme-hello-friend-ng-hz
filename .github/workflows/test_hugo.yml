@@ -2,9 +2,9 @@ name: Test theme
 
 on:
   push:
-    branches: [main]
+    branches: [src]
   pull_request:
-    branches: [main]
+    branches: [src]
   schedule:
     - cron: "0 0 * * *" # every day https://crontab.guru/
 
