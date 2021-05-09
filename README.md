@@ -2,7 +2,7 @@
 
 A good way to see the capabilities of this theme [is this site](https://rgoswami.me).
 
-## General informations
+## General information
 
 This theme was highly inspired by the excellent [hello-friend](https://github.com/panr/hugo-theme-hello-friend), [hermit](https://github.com/Track3/hermit) and [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng/) themes.
 
@@ -243,7 +243,7 @@ ln -s $NODE_PATH node_modules
 - [Simple Icons](https://simpleicons.org/)
 - [Flag Icon](https://github.com/lipis/flag-icon-css)
 
-## Licence
+## License
 
 Copyright © 2020--present Rohit Goswami
 
