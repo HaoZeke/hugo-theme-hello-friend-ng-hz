@@ -3,6 +3,7 @@ title   = "Hello Friend NG HZ"
 
 DefaultContentLanguage = "en"
 
+themesDir = "../.."
 theme = "hello-friend-ng-hz"
 
 PygmentsCodeFences = true
