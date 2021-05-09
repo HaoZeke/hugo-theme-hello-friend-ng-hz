@@ -54,6 +54,7 @@ disableHugoGeneratorInject = false
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
   isTheme = true # ONLY for the exampleSite!!
+  search = true
 
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"
@@ -213,8 +214,16 @@ label = "Utterance 💬"
   [[menu.main]]
     identifier = "about"
     name       = "About"
-    url        = "about/"
+    url        = "/about"
   [[menu.main]]
-    identifier = "posts"
-    name       = "Posts"
-    url        = "posts/"
+    identifier = "blog"
+    name       = "Blog"
+    url        = "/posts"
+  [[menu.other]]
+    identifier = "tags"
+    name       = "Tags"
+    url        = "/tags"
+  [[menu.other]]
+    identifier = "categories"
+    name       = "Categories"
+    url        = "/categories"
