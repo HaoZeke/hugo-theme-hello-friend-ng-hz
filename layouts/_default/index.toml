@@ -1,0 +1,8 @@
+{{ range site.RegularPages }}
+[[input.files]]
+# path = "{{ .File.LogicalName }}"
+path = "./content/{{ .File.Path }}"
+filetype = "Markdown"
+url = "{{ .Permalink }}"
+title = "{{ .Title }}"
+{{ end }}
