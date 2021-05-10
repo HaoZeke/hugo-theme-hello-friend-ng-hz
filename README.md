@@ -36,6 +36,7 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
 - Multiple Search Back-ends 
   - [stork](https://github.com/jameslittle230/stork)
   - [Fuse JS](https://fusejs.io/)
+- Netlify spoiler (optional)
 
 ## How to start
 
