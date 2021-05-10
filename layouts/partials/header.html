@@ -4,7 +4,7 @@
         {{ partial "logo.html" . }}
         </div>
 
-        {{ if .Site.Params.Search }}
+        {{ if (eq .Site.Params.Search.Enable true) }}
         <div class="header__mid">
         <button class="button">
             <div class="button__text">

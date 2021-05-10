@@ -1,0 +1,25 @@
+{{- define "main" -}}
+<main class="post">
+<article class="h-entry">
+  <h1 class="post-title p-name">
+      <a class="u-url" href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+  </h1>
+
+{{ if (eq .Site.Params.Search.Backend "stork") }}
+<link rel="stylesheet" href="https://files.stork-search.net/basic.css" />
+
+<div class="stork-wrapper">
+  <input data-stork="posts" class="stork-input" />
+  <div data-stork="posts-output" class="stork-output"></div>
+</div>
+<script src="https://files.stork-search.net/stork.js"></script>
+<script>stork.register('posts', '/stork-posts.st');</script>
+<div class="center">
+    Search powered by <a href="https://github.com/jameslittle230/stork" target="_blank">stork</a>
+</div>
+
+
+{{ end }}
+
+</main>
+{{- end -}}

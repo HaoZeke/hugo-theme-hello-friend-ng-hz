@@ -44,10 +44,18 @@ disableHugoGeneratorInject = false
 [blackfriday]
   hrefTargetBlank = true
 
+[outputFormats]
+[outputFormats.TOML]
+mediaType = "application/toml"
+
+[outputs]
+  home = ["HTML", "RSS", "TOML"]
+
 [taxonomies]
   tag      = "tags"
   category = "categories"
   author   = "author"
+  search   = "search"
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -55,14 +63,13 @@ disableHugoGeneratorInject = false
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
   isTheme = true # ONLY for the exampleSite!!
-  search = true
 
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"
   keywords = ""
   images = [""]
 
-  homeSubtitle = "Hello Friend NG HZ"
+  homeSubtitle = "Find some of my profiles below"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   # gitUrl = ""
@@ -84,6 +91,11 @@ disableHugoGeneratorInject = false
   # Default theme "light" or "dark"
   defaultTheme = "dark"
   themeColor = "#252627"
+
+[params.search]
+  enable = true
+  backend = "stork" # can be stork or fuse
+# Note that fuse requires hugo-search-fuse-js to be a theme component
 
 ###############
 # Webmentions #
