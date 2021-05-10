@@ -18,6 +18,45 @@
     Search powered by <a href="https://github.com/jameslittle230/stork" target="_blank">stork</a>
 </div>
 
+{{ else if (eq .Site.Params.Search.Backend "fuse") }}
+
+  <section id="search-form" class="search-section">
+    <form action="{{ "search" | absURL }}" class="search-form">
+      <label for="search-query" class="input-label">Search: </label>
+      <input id="search-query" name="search-query" type="text"/>
+    </form>
+    <ul id="search-results" class="posts"></ul>
+    </ul>
+  </section>
+
+<template id="search-result-template">
+    <li class="post_item">
+        <div id="summary-${key}" class="excerpt">
+        <div class="excerpt_header">
+          <h3 class="post_link">
+            <a href="${link}" title="${title}">${title}</a>
+          </h3>
+        </div>
+        <div class="excerpt_footer">
+          <div class="matched-content">
+            <p>
+                ${snippet}
+                <br>
+                ${ isset tags }<strong>Tags:</strong> ${tags}${ end }
+                <br>
+                ${ isset categories }<strong>Categories:</strong> ${categories}${ end }
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.min.js" integrity="sha512-KnvCNMwWBGCfxdOtUpEtYgoM59HHgjHnsVGSxxgz7QH1DYeURk+am9p3J+gsOevfE29DV0V+/Dd52ykTKxN5fA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+
+<script src={{ "js/fuse-config.js" | absURL }}></script>
 
 {{ end }}
 

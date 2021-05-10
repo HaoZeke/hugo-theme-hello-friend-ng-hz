@@ -49,7 +49,7 @@ disableHugoGeneratorInject = false
 mediaType = "application/toml"
 
 [outputs]
-  home = ["HTML", "RSS", "TOML"]
+  home = ["HTML", "RSS", "TOML", "JSON"]
 
 [taxonomies]
   tag      = "tags"
@@ -94,8 +94,7 @@ mediaType = "application/toml"
 
 [params.search]
   enable = true
-  backend = "stork" # can be stork or fuse
-# Note that fuse requires hugo-search-fuse-js to be a theme component
+  backend = "fuse" # can be stork or fuse
 
 ###############
 # Webmentions #
