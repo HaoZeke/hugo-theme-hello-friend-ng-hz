@@ -130,11 +130,14 @@ accountID = "rohit"
 # Comment Systems #
 ###################
 
-[params.utterances]
-issue = "pathname"
-theme = "photon-dark"
-repo  ="haozeke/hello-friend-ng-hz"
-label = "Utterance 💬"
+# [params.utterances]
+# issue = "pathname"
+# theme = "photon-dark"
+# repo  ="haozeke/hello-friend-ng-hz"
+# label = "Utterance 💬"
+
+# [params.remarkbox]
+# accountID = "rb_owner_key"
 
 # [params.graphcomments]
 # accountID = "rgoswami"

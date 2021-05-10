@@ -8,4 +8,6 @@
     {{ partial "graphcomments.html" . }}
 {{- else if .Site.Params.CommentBox }}
     {{ partial "commentbox.html" . }}
+{{- else if .Site.Params.RemarkBox }}
+    {{ partial "remarkbox.html" . }}
 {{- end }}
