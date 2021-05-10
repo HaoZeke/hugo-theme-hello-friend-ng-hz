@@ -33,6 +33,9 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
   - [Microsoft Clarity](https://clarity.microsoft.com/)
   - [GoatCounter](https://www.goatcounter.com/)
   - [Clicky](https://clicky.com/)
+- Multiple Search Back-ends 
+  - [stork](https://github.com/jameslittle230/stork)
+  - [Fuse JS](https://fusejs.io/)
 
 ## How to start
 
@@ -49,6 +52,23 @@ If you don't want to make any radical changes, it's the best option, because you
 ```bash
 $ git submodule add https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz.git themes/hello-friend-ng-hz
 ```
+
+### Stork Search
+In order to use the `stork` search the build system needs to generate the `stork-posts.st` file.
+
+``` bash
+# exampleSite
+cd exampleSite
+hugo
+stork build --input index.toml --output stork-posts.st
+```
+
+Where the stork installation instructions [are here](https://stork-search.net/).
+
+### Fuse Search
+The search is adopted from [this gist](https://gist.github.com/eddiewebb/735feb48f50f0ddd65ae5606a1cb41ae), along with these subsequent blog posts by [eddturtle](https://makewithhugo.com/add-search-to-a-hugo-site/) and [lonelydev](https://www.softwarecraftsperson.com/posts/2021-05-01-client-side-search-fuse/).
+
+Note that though this requires less setup; it adds some additional weight (like `jquery`). However, it also includes some fuzzy searching logic.
 
 ## How to configure
 
@@ -79,6 +99,24 @@ theme = "hello-friend-ng-hz"
 
   # Default theme "light" or "dark"
   defaultTheme = "dark"
+  
+# Needed for search
+[outputFormats]
+[outputFormats.TOML]
+mediaType = "application/toml"
+
+[outputs]
+  home = ["HTML", "RSS", "TOML", "JSON"]
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+  author   = "author"
+  search   = "search" # Necessary!
+
+[params.search]
+  enable = true
+  backend = "fuse" # can be stork or fuse
 
 [languages]
   [languages.en]
@@ -89,7 +127,7 @@ theme = "hello-friend-ng-hz"
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "hello friend ng"
+      logoText = "hello friend ng hz"
       logoHomeLink = "/"
     # or
     #
