@@ -1,3 +1,7 @@
+<div class="pagination__title">
+    <span class="pagination__title-h">Comments</span>
+    <hr />
+</div>
 {{- if .Site.DisqusShortname }}
     {{ template "_internal/disqus.html" . }}
 {{- else if .Site.Params.Utterances }}
