@@ -22,7 +22,7 @@
 
   <section id="search-form" class="search-section">
     <form action="{{ "search" | absURL }}" class="search-form">
-      <label for="search-query" class="input-label">Search: </label>
+      <label for="search-query" class="input-label">Query: </label>
       <input id="search-query" name="search-query" type="text"/>
     </form>
     <ul id="search-results" class="posts"></ul>
@@ -42,9 +42,9 @@
             <p>
                 ${snippet}
                 <br>
-                ${ isset tags }<strong>Tags:</strong> ${tags}${ end }
+                <strong>Tags:</strong> ${tags}
                 <br>
-                ${ isset categories }<strong>Categories:</strong> ${categories}${ end }
+                <strong>Categories:</strong> ${categories}
             </p>
           </div>
         </div>
