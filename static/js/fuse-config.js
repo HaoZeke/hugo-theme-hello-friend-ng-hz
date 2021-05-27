@@ -7,15 +7,15 @@ var fuseOptions = {
   includeScore: true,
   threshold: 0.6,
   useExtendedSearch: true,
-  tokenize: false,
-  matchAllTokens: true,
+  tokenize: true,
+  matchAllTokens: false,
   location: 0,
   distance: 100,
   maxPatternLength: 64,
   minMatchCharLength: 1,
   keys: [
     { name: "title", weight: 0.8 },
-    { name: "contents", weight: 0.6 },
+    { name: "contents", weight: 5.6 },
     { name: "tags", weight: 0.4 },
     { name: "categories", weight: 0.3 }
   ]
@@ -31,11 +31,18 @@ if (searchQuery) {
 
 function executeSearch(searchQuery) {
   $.getJSON("/index.json", function (data) {
+    var validResults = [];
     var pages = data;
     const fuse = new Fuse(pages, fuseOptions);
     var result = fuse.search(searchQuery);
-    if (result.length > 0) {
-      populateResults(result);
+    console.log(result);
+    // Remove if score is less than 70
+    for (var i=0, len=result.length; i<len; i++){
+      if (result[i].score <= 0.7)
+        validResults.push(result[i])
+    }
+    if (validResults.length > 0) {
+      populateResults(validResults);
     } else {
       $('#search-results').append("<li>No matches found</li>");
     }
@@ -48,9 +55,8 @@ function populateResults(result) {
   // remove multiple instances of the same page from the result set.
   for (var i=0, len=result.length; i<len; i++){
     // exclude search page from search results if the search query was 'search'
-    // Also remove if score is less than 60
     if (!addedPermalinks.hasOwnProperty(result[i].item.permalink) &&
-        (result[i].item.permalink.match(/\/search\//g) === null) && result[i].score <= 0.6){
+        (result[i].item.permalink.match(/\/search\//g) === null)){
       filteredResults.push(result[i]); addedPermalinks[result[i].item.permalink]
       = result[i].item.permalink; }
   }
