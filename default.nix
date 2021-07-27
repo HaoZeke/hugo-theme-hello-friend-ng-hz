@@ -4,10 +4,12 @@ let
   stdenv = pkgs.stdenv;
   myGems = pkgs.bundlerEnv {
     name = "gems-for-some-project";
-    gemdir = ./.;
+    gemdir = builtins.path { path = ./.; name = "hello-friend-ng-hz"; };
   };
-  myHaskellEnv = pkgs.haskellPackages.ghcWithPackages
-    (haskellPackages: with haskellPackages; [ pandoc_2_10_1 pandoc-citeproc ]);
+  # haskellpkgs is a pinned version of nixpkgs
+  # https://github.com/HaoZeke/haozeke.github.io/commit/e312ff597931fde168e4da6aec37164ef2616894#diff-a0745f7ed88cfac6058d1d4cfb57bc71127a28ad7c6756004142a90aab5ee99f
+  hpkgs = import sources.haskellpkgs {};
+  # Don't go beyond, or earlier than 2.13 until https://github.com/kaushalmodi/ox-hugo/issues/336 is closed
   nodePkgs = (pkgs.callPackage ./node.nix {
     inherit pkgs;
     nodejs = pkgs.nodejs-12_x;
@@ -15,7 +17,7 @@ let
 in pkgs.stdenv.mkDerivation {
   name = "rgoswami.me-0.1";
 
-  srcs = ./.;
+  srcs = builtins.path { path = ./.; name = "hello-friend-ng-hz"; };
 
   LANG = "en_US.UTF-8";
 
@@ -36,14 +38,11 @@ in pkgs.stdenv.mkDerivation {
     # Ruby
     myGems
     (lowPrio myGems.wrappedRuby)
-    # Haskell
-    myHaskellEnv
-  ];
+  ] ++ [ hpkgs.pandoc ];
 
   configurePhase = ''
     mkdir -p "$(pwd)/_libs"
     export R_LIBS_USER="$(pwd)/_libs"
-    eval $(egrep ^export ${myHaskellEnv}/bin/ghc)
     ln -s ${nodePkgs}/lib/node_modules ./node_modules
     export PATH="${nodePkgs}/bin:$PATH"
   '';
