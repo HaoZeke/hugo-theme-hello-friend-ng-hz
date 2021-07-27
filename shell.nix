@@ -4,6 +4,7 @@ let
   stdenv = pkgs.stdenv;
   myHaskellEnv = pkgs.haskellPackages.ghcWithPackages
     (haskellPackages: with haskellPackages; [ pandoc_2_10_1 pandoc-citeproc ]);
+  # Don't go beyond 2.10.1 until https://github.com/kaushalmodi/ox-hugo/issues/336 is closed
   nodePkgs = (pkgs.callPackage ./node.nix {
     inherit pkgs;
     nodejs = pkgs.nodejs-12_x;
