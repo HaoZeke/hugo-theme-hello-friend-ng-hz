@@ -39,7 +39,7 @@
             {{- with .Params.author }}
                     {{- range . -}}
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pen-tool"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                         <span class="author u-author p-author"><a href="{{ "author/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>
+                         <span class="author u-author p-author"><a href="{{ "author/" | relLangURL }}{{ . | urlize }}">{{.}}</a></span>
                     {{- end }}
             {{- end }}
         </div>
@@ -69,7 +69,7 @@
                 <p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
                     {{- range . -}}
-                         <span class="tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>
+                         <span class="tag"><a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">{{.}}</a></span>
                     {{- end }}
                 </p>
             {{- end }}

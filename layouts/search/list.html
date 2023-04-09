@@ -21,7 +21,7 @@
 {{ else if (eq .Site.Params.Search.Backend "fuse") }}
 
   <section id="search-form" class="search-section">
-    <form action="{{ "search" | absURL }}" class="search-form">
+    <form action="{{ "search" | relURL }}" class="search-form">
       <label for="search-query" class="input-label">Query: </label>
       <input id="search-query" name="search-query" type="text"/>
     </form>
@@ -56,7 +56,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
 
-<script src={{ "js/fuse-config.js" | absURL }}></script>
+<script src={{ "js/fuse-config.js" | relURL }}></script>
 
 {{ end }}
 
