@@ -9,9 +9,12 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
 ## Features
 
 - Theming: **dark/light mode**, depending on your preferences (dark is default, but you can change it)
+  - Includes colors for external (purple) and internal links (blue)
+  - Alert class styles (`{info,success,warning,error}-alert`)
 - Great reading experience
   - (Default stack) [Bookerly](https://en.wikipedia.org/wiki/Bookerly), [Geomanist](https://www.atipofoundry.com/fonts/geomanist) and [Cascadia](https://github.com/microsoft/cascadia-code)
   - (Alternative) [Bookerly](https://en.wikipedia.org/wiki/Bookerly) with [**Inter UI font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/) and [Hack](https://sourcefoundry.org/hack/)
+  - TOC's which use CSS grid to be responsive and unobtrusive at all sizes
 - Hugo native code highlighting
 - An easy way to modify the theme with Hugo tooling
 - Fully responsive
