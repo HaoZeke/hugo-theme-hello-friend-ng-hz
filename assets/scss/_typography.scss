@@ -135,13 +135,15 @@ blockquote {
   }
 a {
   &[href^="/"],
+  &[href*="#{$site-url}"],
   &[href^="#"] {
     border-bottom: $link-color 0.125em solid;
     .dark-theme & {
       border-bottom: darken($link-color, 15) 0.125em solid;
     }
   }
-  &:not(&[href^="/"], &[href^="#"]) {
+
+  &:not([href^="/"]):not([href*="#{$site-url}"]):not([href^="#"]) {
     border-bottom: $external-link-color 0.125em solid;
     .dark-theme & {
       border-bottom: darken($external-link-color, 15) 0.125em solid;

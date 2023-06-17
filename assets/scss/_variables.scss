@@ -1,10 +1,12 @@
 @charset "UTF-8";
+@use "hugo:vars" as h;
 
 /* Common Colors */
 $logo-cursor-color: #002f46;
 // $link-color: #ea215a;
 $link-color: #0380ff;
 $external-link-color: #9b36ff;
+$site-url: h.$site_url;
 
 /* light theme color */
 $light-background: #fff;
