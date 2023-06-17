@@ -69,7 +69,7 @@ a {
     font-family: $serif;
     line-height: $heading-line-height;
     font-weight: $bold;
-    font-size: $heading-base-size * pow($heading-scale-ratio, 7/2 - $index);
+    font-size: $heading-base-size * pow($heading-scale-ratio, calc( 7/2 ) - $index);
   }
 }
 
