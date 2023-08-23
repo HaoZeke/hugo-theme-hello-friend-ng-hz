@@ -41,6 +41,7 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
   - [stork](https://github.com/jameslittle230/stork)
   - [Fuse JS](https://fusejs.io/)
 - Netlify spoiler (optional)
+- Zotero embedded blog-post parsing (via spoofed content generator)
 
 ## How to start
 
