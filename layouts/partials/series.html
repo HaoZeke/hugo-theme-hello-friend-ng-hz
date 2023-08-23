@@ -7,7 +7,7 @@
       {{- range $series -}}
       <li>
         {{- if eq .File.UniqueID $.File.UniqueID -}}
-          <b>{{ .Title }}</b>
+          <b>{{ .Title }}</b> <-- You are here!
         {{- else -}}
           <a href="{{ .Permalink }}">{{ .Title }}</a>
         {{- end -}}
