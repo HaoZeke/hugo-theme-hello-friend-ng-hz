@@ -215,3 +215,29 @@
     }
   }
 }
+
+@mixin notice($notice-color)
+{
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    border-left: 0.5em solid $notice-color;
+    background-color: rgba($notice-color, 0.1);
+
+    > *:first-child {
+        margin-top: 0;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.notice--info {
+    @include notice(#8ebeeb);
+}
+
+div.post-series-top {
+    a {
+        font-weight: bold;
+    }
+}

@@ -58,7 +58,26 @@
             {{ end }}
 
             <div class="post-content e-content">
+
+                {{- with (.GetTerms "series") -}}
+                  {{- $series := slice -}}
+                  {{- range . -}}
+                    {{- $series = $series | append (printf "<a href=\"%s\">%s</a>" .Permalink .Title) -}}
+                  {{- end -}}
+                  <div class="notice--info post-series-top">
+                    <p>This post is part of the {{ delimit $series ", " " and " }} series.</p>
+                  </div>
+                {{- end -}}
+
                 {{ .Content }}
+
+        {{- if .Params.series -}}
+        <hr />
+          <div class="post-series-bottom">
+            {{ partial "series.html" . }}
+          </div>
+        {{- end -}}
+
             </div>
         </article>
 

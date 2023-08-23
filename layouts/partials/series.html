@@ -1,0 +1,18 @@
+{{- with (.GetTerms "series") -}}
+  {{- range . -}}
+    <h2>Series info</h2>
+    <h3>{{ .Title }} series</h3>
+    {{- $series := .Pages.ByDate -}}
+    <ol>
+      {{- range $series -}}
+      <li>
+        {{- if eq .File.UniqueID $.File.UniqueID -}}
+          <b>{{ .Title }}</b>
+        {{- else -}}
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{- end -}}
+      </li>
+      {{- end -}}
+    </ol>
+  {{- end -}}
+{{- end -}}

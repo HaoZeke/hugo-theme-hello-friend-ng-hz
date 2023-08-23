@@ -56,6 +56,7 @@ mediaType = "application/toml"
   category = "categories"
   author   = "author"
   search   = "search"
+  series   = "series"
 
 [params]
   dateform        = "Jan 2, 2006"
