@@ -10,7 +10,7 @@ new ConcatPlugin({
   name: "result",
   outputPath: "test/",
   fileName: "[name].[hash:8].js",
-  filesToConcat: ["./src/js/**", "!./src/js/codefold.js"],
+  filesToConcat: ["./src/js/**", "!./src/js/codefold.js", "!./src/js/copyClipboard.js"],
   attributes: {
     async: true,
   },
@@ -22,6 +22,7 @@ module.exports = {
     codefold: path.resolve("src", "js", "codefold.js"),
     theme: path.resolve("src", "js", "theme.js"),
     menu: path.resolve("src", "js", "menu.js"),
+    copyClipboard: path.resolve("src", "js", "copyClipboard.js"),
   },
   output: {
     path: path.resolve("assets", "js"),

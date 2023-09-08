@@ -1,0 +1,96 @@
+$highlight-wrapper-display: block;
+
+$highlight-position: relative;
+$highlight-z-index: 0;
+$highlight-padding: 0;
+$highlight-margin: 0;
+$highlight-border-radius: 4px;
+
+$chroma-color: #d0d0d0;
+$chroma-bg-color: #212121;
+$chroma-padding: 10px;
+
+$lntd-padding-first: 7px 7px 7px 10px;
+$lntd-padding-last: 7px 10px 7px 7px;
+
+$copy-code-button-font-size: 13px;
+$copy-code-button-font-weight: 700;
+$copy-code-button-line-height: 14px;
+$copy-code-button-letter-spacing: 0.5px;
+$copy-code-button-width: 65px;
+$copy-code-button-color: #232326;
+$copy-code-button-bg-color: #7f7f7f;
+$copy-code-button-border-color: #232326;
+$copy-code-button-padding: 4px 4px 5px 4px;
+$copy-code-button-margin: 0 0 0 1px;
+$copy-code-button-opacity: 0.6;
+$copy-code-button-hover-opacity: 0.8;
+$copy-code-button-hover-color: #222225;
+$copy-code-button-hover-bg-color: #b3b3b3;
+
+$copyable-text-area-opacity: 0.01;
+
+.highlight-wrapper {
+  display: $highlight-wrapper-display;
+}
+
+.highlight {
+  position: $highlight-position;
+  z-index: $highlight-z-index;
+  padding: $highlight-padding;
+  margin: $highlight-margin;
+  border-radius: $highlight-border-radius;
+
+  > .chroma {
+    color: $chroma-color;
+    background-color: $chroma-bg-color;
+    padding: $chroma-padding;
+
+    .lntd {
+      margin: 0;
+
+      &:first-child {
+        padding: $lntd-padding-first;
+      }
+
+      &:last-child {
+        padding: $lntd-padding-last;
+      }
+    }
+  }
+}
+
+.copy-code-button {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  font-size: $copy-code-button-font-size;
+  font-weight: $copy-code-button-font-weight;
+  line-height: $copy-code-button-line-height;
+  letter-spacing: $copy-code-button-letter-spacing;
+  width: $copy-code-button-width;
+  color: $copy-code-button-color;
+  background-color: $copy-code-button-bg-color;
+  border: 1.25px solid $copy-code-button-border-color;
+  border-radius: 4px 0 0 4px;
+  white-space: nowrap;
+  padding: $copy-code-button-padding;
+  margin: $copy-code-button-margin;
+  cursor: pointer;
+  opacity: $copy-code-button-opacity;
+
+  &:hover, &:focus, &:active, &:active:hover {
+    color: $copy-code-button-hover-color;
+    background-color: $copy-code-button-hover-bg-color;
+    opacity: $copy-code-button-hover-opacity;
+  }
+}
+
+.copyable-text-area {
+  position: absolute;
+  height: 0;
+  z-index: -1;
+  opacity: $copyable-text-area-opacity;
+}
+
