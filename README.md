@@ -22,7 +22,10 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
 - Support for social icons
 - Supports multiple authors and listings
 - Includes [Liberapay](https://liberapay.com/)
-- Codefolding
+- Codefolding 
+  + Has a dependency on Readmore, opt-in in config
+- Copy to clipboard in pure JS
+  + From [here](https://aaronluna.dev/blog/add-copy-button-to-code-blocks-hugo-chroma/) and [here](https://www.dannyguo.com/blog/how-to-add-copy-to-clipboard-buttons-to-code-blocks-in-hugo/), [updated to work with line numbers](https://github.com/HaoZeke/hugo-theme-hello-friend-ng-hz/commit/1ba8b9400fd00f17bff489de6bbc77afc2869fcc)
 - Author specific pages to support multiple authors
 - Categories and tags with word-clouds
 - Nix build system for hermetic builds
