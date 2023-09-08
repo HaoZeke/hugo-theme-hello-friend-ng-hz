@@ -8,9 +8,23 @@ function createCopyButton(highlightDiv) {
 }
 
 async function copyCodeToClipboard(button, highlightDiv) {
-  const codeToCopy = highlightDiv.querySelector(":last-child > .chroma > code").innerText;
+  // Get all the lines within the code block
+  const codeLines = Array.from(highlightDiv.querySelectorAll(":last-child > .chroma > code > .line"));
+
+  // Extract text from each line, excluding the line number
+  const codeFragments = codeLines.map(line => {
+    return Array.from(line.childNodes)
+      .filter(el => !el.classList || !el.classList.contains("ln"))
+      .map(el => el.textContent)
+      .join('');
+  });
+
+  // Join fragments and then split by double newline to remove extra newlines
+  let codeToCopy = codeFragments.join(''); // Join all fragments into a single string
+  codeToCopy = codeToCopy.replace(/\n{3,}/g, '\n\n'); // Replace three or more consecutive newlines with just two
+
   try {
-    result = await navigator.permissions.query({ name: "clipboard-write" });
+    const result = await navigator.permissions.query({ name: "clipboard-write" });
     if (result.state == "granted" || result.state == "prompt") {
       await navigator.clipboard.writeText(codeToCopy);
     } else {
