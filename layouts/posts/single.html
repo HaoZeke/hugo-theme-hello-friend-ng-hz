@@ -62,7 +62,8 @@
                 {{- with (.GetTerms "series") -}}
                   {{- $series := slice -}}
                   {{- range . -}}
-                    {{- $series = $series | append (printf "<a href=\"%s\">%s</a>" .Permalink .Title | safeHTML) -}}
+                    {{- $link := (printf "<a href=\"%s\">%s</a>" (.Permalink | htmlUnescape) (.Title | htmlUnescape)) | safeHTML -}}
+                    {{- $series = $series | append $link -}}
                   {{- end -}}
                   <div class="notice--info post-series-top">
                     <p>This post is part of the {{ delimit $series ", " " and " }} series.</p>
