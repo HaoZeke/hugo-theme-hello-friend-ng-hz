@@ -65,6 +65,7 @@ mediaType = "application/toml"
   dateformNumTime = "2006-01-02 15:04 -0700"
   isTheme = true # ONLY for the exampleSite!!
   praiseNetlify = false
+  showHumanAuthorBadge = false
 
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"

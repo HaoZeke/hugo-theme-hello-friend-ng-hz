@@ -104,6 +104,10 @@
                 {{- partial "sharing-icons.html" . -}}
         </div>
 
+        {{ if (eq .Site.Params.showHumanAuthorBadge true) }}
+          {{ partial "human-author-badge.html" . }}
+        {{ end }}
+
         {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
             <div class="pagination">
                 <div class="pagination__title">
