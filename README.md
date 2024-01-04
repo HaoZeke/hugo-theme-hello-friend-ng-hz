@@ -45,6 +45,9 @@ This theme was highly inspired by the excellent [hello-friend](https://github.co
   - [Fuse JS](https://fusejs.io/)
 - Netlify spoiler (optional)
 - Zotero embedded blog-post parsing (via spoofed content generator)
+- [Not-by-AI](https://notbyai.fyi/) badge (optionally)
+  + Needs one to have the `Written-By-Human-Not-By-AI-Badge-white.svg` file in `static/images`
+  + Also the `showHumanAuthorBadge` parameter
 
 ## How to start
 
