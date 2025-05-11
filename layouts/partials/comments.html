@@ -2,7 +2,7 @@
     <span class="pagination__title-h">Comments</span>
     <hr />
 </div>
-{{- if .Site.DisqusShortname }}
+{{- if .Site.Params.DisqusShortname }}
     {{ template "_internal/disqus.html" . }}
 {{- else if .Site.Params.Utterances }}
     {{ partial "utterances.html" . }}
