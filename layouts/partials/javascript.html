@@ -3,9 +3,8 @@
 {{ $theme := resources.Get "js/theme.js" }}
 {{ $codefold := resources.Get "js/codefold.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $copyClipboard := resources.Get "js/copyClipboard.js" | resources.Minify | resources.Fingerprint "sha512" }}
-{{ $webmention := resources.Get "js/webmention.js" | resources.Minify | resources.Fingerprint "sha512" }}
 {{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
-<script src="{{ $secureJS.RelPermalink }}"></script>
+<script src="{{ $secureJS.RelPermalink }}" defer></script>
 
 {{- if .Site.Params.GoogleAnalytics }}
     <script>
@@ -50,7 +49,10 @@
 {{ end }}
 
 {{- if .Site.Params.Webmention }}
-<script src="{{ $webmention.RelPermalink }}" data-id="webmention-container"></script>
+{{ if .IsPage }} {{/* Only load on content pages */}}
+  {{ $webmentionJS := resources.Get "js/webmention-pagination.js" | js.Build }}
+  <script src="{{ $webmentionJS.RelPermalink }}" defer></script>
+{{ end }}
 {{- end}}
 
 {{ range $val := $.Site.Params.customJS }}

@@ -1,21 +1,60 @@
-<!-- From https://deluvi.com/blog/webmention/-->
-{{ range . }}
-{{ if eq .mention_type "mention" }}
-<div class="mention"><a href="{{ .author.url }}">{{ .author.name }}</a> mentionned this post in <a href="{{ .url }}">the post {{  .title }}</a></div>
-{{ end }}
-{{ if eq .mention_type "like" }}
-<div class="like"><a href="{{ .author.url }}">{{ .author.name }}</a> <a href="{{ .url }}">liked</a></div>
-{{ end }}
-{{ if eq .mention_type "reply" }}
-<div class="reply"><a href="{{ .author.url }}">{{ .author.name }}</a> replied to this post <a href="{{ .url }}">here</a></div>
-{{ end }}
-{{ if eq .mention_type "bookmark" }}
-<div class="bookmark"><a href="{{ .author.url }}">{{ .author.name }}</a> bookmarked this post</div>
-{{ end }}
-{{ if eq .mention_type "repost" }}
-<div class="repost"><a href="{{ .author.url }}">{{ .author.name }}</a> <a href="{{ .url }}">reposted</a> this article</div>
-{{ end }}
-{{ if eq .mention_type "rsvp" }}
-<div class="rsvp"><a href="{{ .author.url }}">{{ .author.name }}</a> responded to the rsvp <a href="{{ .url }}">here</a></div>
-{{ end }}
+{{ $path := .RelPermalink }}
+{{ $path = $path | replaceRE "/$" "" }}
+{{ $slug := $path | replaceRE "/" "--" }}
+{{ $dataFile := printf "data/webmentions/%s.json" $slug }}
+
+{{ if fileExists $dataFile }}
+  {{ $mentions := os.ReadFile $dataFile | unmarshal }}
+  {{ $likes := where $mentions "wm-property" "like-of" }}
+  {{ $reposts := where $mentions "wm-property" "repost-of" }}
+  {{ $replies := where $mentions "wm-property" "in-reply-to" }}
+  {{ $mentions_generic := where $mentions "wm-property" "mention-of" }}
+
+  {{ if gt (len $mentions) 0 }}
+    <section class="webmentions-container" id="webmentions">
+      <header class="webmentions__header">
+        <h3 class="webmentions__title">Conversation</h3>
+        <span class="webmentions__count">{{ len $mentions }} interactions</span>
+      </header>
+
+      {{ $reactions := $likes | append $reposts }}
+      {{ if gt (len $reactions) 0 }}
+        <div class="webmentions__reactions">
+          <div class="webmentions__reactions__grid">
+            {{ range $reactions }}
+              <a class="webmentions__reactions__item" href="{{ .author.url | default .url }}" title="{{ .author.name }} {{ if eq .wm_property "like-of" }}liked this{{ else }}reposted this{{ end }}" target="_blank" rel="noopener noreferrer ugc">
+                <img class="webmentions__reactions__photo" src="{{ .author.photo }}" alt="{{ .author.name }}">
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+
+      {{ $conversation := $replies | append $mentions_generic }}
+      {{ if gt (len $conversation) 0 }}
+        <div class="webmentions__conversation">
+          {{ range sort $conversation ".published" "desc" }}
+            <article class="webmention">
+              <div class="webmention__author">
+                <a href="{{ .author.url | default .url }}" target="_blank" rel="noopener noreferrer ugc">
+                  <img class="webmention__author__photo" src="{{ .author.photo }}" alt="{{ .author.name }}">
+                </a>
+                <div class="webmention__author__meta">
+                  <strong class="webmention__author__name">{{ .author.name }}</strong>
+                  <a class="webmention__meta" href="{{ .url }}" target="_blank" rel="noopener noreferrer ugc">
+                    {{ .published | default .wm_received | time.Format ":date_long" }}
+                  </a>
+                </div>
+              </div>
+              <div class="webmention__content">
+                {{ .content.html | default .content.text | safeHTML }}
+              </div>
+            </article>
+          {{ end }}
+        </div>
+        <nav class="webmentions__pagination"></nav>
+      {{ end }}
+
+    </section>
+  {{ end }}
 {{ end }}

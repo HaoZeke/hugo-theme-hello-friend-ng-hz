@@ -147,6 +147,7 @@
                 </form>
             </div>
             <div id="webmention-container"></div>
+            {{ partial "webmention.html" . }}
         {{ end }}
 
         {{ if .Params.comments }}
