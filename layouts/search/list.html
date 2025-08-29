@@ -1,64 +1,41 @@
 {{- define "main" -}}
-<main class="post">
-<article class="h-entry">
-  <h1 class="post-title p-name">
-      <a class="u-url" href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-  </h1>
+<main class="posts">
+  <h1 class="post-title">Search</h1>
 
-{{ if (eq .Site.Params.Search.Backend "stork") }}
-<link rel="stylesheet" href="https://files.stork-search.net/basic.css" />
+  <section class="search-container">
+    <input type="text" id="search-query" placeholder="Type to search..." />
 
-<div class="stork-wrapper">
-  <input data-stork="posts" class="stork-input" />
-  <div data-stork="posts-output" class="stork-output"></div>
-</div>
-<script src="https://files.stork-search.net/stork.js"></script>
-<script>stork.register('posts', '/stork-posts.st');</script>
-<div class="center">
-    Search powered by <a href="https://github.com/jameslittle230/stork" target="_blank">stork</a>
-</div>
+    {{/* --- Checklists for Searchable Sections --- */}}
+    <div class="search-filters">
+      <span class="search-filters__label">Search in:</span>
+      <div class="search-filters__options">
+        {{ range .Site.Params.search.searchableSections }}
+          <div class="search-filters__option">
+            <input type="checkbox" id="search-{{ . }}" name="search-section" value="{{ . }}" checked>
+            <label for="search-{{ . }}">{{ . | humanize | title }}</label>
+          </div>
+        {{ end }}
+      </div>
+    </div>
 
-{{ else if (eq .Site.Params.Search.Backend "fuse") }}
-
-  <section id="search-form" class="search-section">
-    <form action="{{ "search" | relURL }}" class="search-form">
-      <label for="search-query" class="input-label">Query: </label>
-      <input id="search-query" name="search-query" type="text"/>
-    </form>
-    <ul id="search-results" class="posts"></ul>
-    </ul>
+    <ul id="search-results" class="posts-list">
+      </ul>
   </section>
 
-<template id="search-result-template">
-    <li class="post_item">
-        <div id="summary-${key}" class="excerpt">
-        <div class="excerpt_header">
-          <h3 class="post_link">
-            <a href="${link}" title="${title}">${title}</a>
-          </h3>
-        </div>
-        <div class="excerpt_footer">
-          <div class="matched-content">
-            <p>
-                ${snippet}
-                <br>
-                <strong>Tags:</strong> ${tags}
-                <br>
-                <strong>Categories:</strong> ${categories}
-            </p>
-          </div>
-        </div>
-      </div>
+  <template id="search-result-template">
+    <li class="post-item">
+      <a href="${link}">
+        <span class="post-title">${title}</span>
+        <span class="post-day">${date} (${readingTime} min.)</span>
+      </a>
     </li>
-</template>
+  </template>
 
+</main>
+
+{{/* Load the necessary JavaScript files */}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.min.js" integrity="sha512-KnvCNMwWBGCfxdOtUpEtYgoM59HHgjHnsVGSxxgz7QH1DYeURk+am9p3J+gsOevfE29DV0V+/Dd52ykTKxN5fA==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
-
 <script src={{ "js/fuse-config.js" | relURL }}></script>
-
-{{ end }}
-
-</main>
 {{- end -}}

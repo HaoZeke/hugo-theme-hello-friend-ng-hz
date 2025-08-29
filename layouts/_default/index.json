@@ -1,5 +1,20 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range .Site.RegularPages -}}
-    {{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "categories" .Params.categories "contents" .Plain "permalink" .Permalink) -}}
+{{- $searchableSections := .Site.Params.search.searchableSections | default (slice "posts") -}}
+
+{{- range where .Site.RegularPages "Section" "in" $searchableSections -}}
+  {{- $snippet := .Summary | plainify | truncate 75 -}}
+
+  {{- $item := dict
+    "title" .Title
+    "tags" .Params.tags
+    "categories" .Params.categories
+    "contents" .Plain
+    "snippet" $snippet
+    "link" .Permalink
+    "section" .Section
+    "date" (.Date.Format "Jan 2")
+    "readingTime" .ReadingTime -}}
+  {{- $.Scratch.Add "index" $item -}}
 {{- end -}}
+
 {{- $.Scratch.Get "index" | jsonify -}}

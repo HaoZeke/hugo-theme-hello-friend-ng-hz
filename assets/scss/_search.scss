@@ -1,18 +1,118 @@
-#search-query {
-  padding: 4px 10px;
-  width: 100%;
-  height: 31px;
-  font-size: 1.6em;
-  color: $logo-cursor-color;
-  font-weight: bold;
-  background-color: $light-background;
-  border-radius: 3px 3px 0px 0px;
-  border: none;
-  outline: none;
-  text-align: left;
-  display: inline-block;
+@import "variables";
+@import "mixins/mq";
 
-  .dark-theme & {
-    background-color: $dark-background;
+.search-container {
+  margin-bottom: 2rem;
+}
+
+.search-item {
+  margin-bottom: 2rem;
+  a.search-link {
+    display: flex;
+    justify-content: space-between;
+  }
+  .search-title {
+    font-weight: 800;
+  }
+  .taxonomy-group {
+    strong {
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+#search-query {
+  width: 100%;
+  font-size: 1.2rem;
+  font-family: var(--font-family-main);
+  color: var(--fg);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--grey);
+  border-radius: var(--border-radius);
+  padding: 0.8rem 1.2rem;
+  outline: none;
+  &:focus {
+    border-color: var(--blue);
+  }
+}
+
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem 2rem;
+  margin: 1.5rem 0 0;
+  font-family: var(--font-family-monospace);
+  font-size: 0.9rem;
+}
+
+.search-filters__group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-filters__label {
+  color: var(--fg-muted);
+  font-weight: 600;
+}
+
+.search-filters__options {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.search-filters__option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  label {
+    cursor: pointer;
+  }
+  input[type="checkbox"]:checked + label {
+    color: var(--blue);
+    font-weight: 600;
+  }
+}
+
+.search-result-blurb {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.25rem;
+
+  mark {
+    background-color: transparent;
+    color: var(--blue);
+    font-weight: 600;
+    padding: 0;
+  }
+}
+
+.search-result-meta {
+  margin-top: 0.75rem;
+  .search-result-tags,
+  .search-result-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .taxonomy-item {
+    font-family: var(--font-family-monospace);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--grey);
+    border-radius: var(--border-radius);
+    padding: 0.15rem 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--blue);
+      border-color: var(--blue);
+    }
   }
 }
