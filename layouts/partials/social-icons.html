@@ -1,4 +1,4 @@
 {{$relDef := "me noopener"}}
 {{ range . -}}
-    &nbsp; <a href="{{ .url }}" target="_blank" rel="{{ .rel | default $relDef }}" title="{{ .name | humanize }}">{{ partial "svg.html" . }}</a> &nbsp;
+    &nbsp; <a href="{{ .url }}" target="_blank" rel="{{ .rel | default $relDef }}" title="{{ .name | humanize }}" aria-label="{{ .name | humanize }}">{{ partial "svg.html" . }}</a> &nbsp;
 {{- end -}}

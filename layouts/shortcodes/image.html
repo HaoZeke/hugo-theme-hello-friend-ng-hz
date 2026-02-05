@@ -1,3 +1,10 @@
 {{ if .Get "src" }}
-    <img src="{{ .Get "src" | safeURL }}" {{ with .Get "alt" }} alt="{{ . | plainify }}" {{ end }} class="{{ with .Get "position"}}{{ . }}{{ else -}} left {{- end }}" {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }} />
+    <img 
+        src="{{ .Get "src" | safeURL }}" 
+        {{ with .Get "alt" }} alt="{{ . | plainify }}" {{ end }} 
+        class="{{ .Get "position" | default "left" }}" 
+        {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }}
+        loading="lazy"
+        decoding="async"
+    />
 {{ end }}
