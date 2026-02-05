@@ -29,6 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function executeSearch() {
     if (!isSearchInitialized) return;
 
+    const query = searchQuery.value.trim();
+    if (query.length < 2) {
+      searchResults.innerHTML = "";
+      return;
+    }
+
     const searchKeys = [
       { name: "title", weight: 0.8 },
       { name: "contents", weight: 0.5 },
@@ -49,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .map((checkbox) => checkbox.value);
 
     if (selectedSections.length === 0) {
-      renderResults([], searchQuery.value.trim(), true);
+      renderResults([], query, true);
       return;
     }
     const filteredList = searchList.filter((item) => selectedSections.includes(item.section));
@@ -62,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const fuse = new Fuse(filteredList, options);
-    const query = searchQuery.value.trim();
     const results = query ? fuse.search(query) : [];
 
     renderResults(results, query);
@@ -110,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Add event listeners
   searchQuery.addEventListener("keyup", executeSearch);
   filterCheckboxes.forEach((checkbox) => checkbox.addEventListener("change", executeSearch));
   includeCheckboxes.forEach((checkbox) => checkbox.addEventListener("change", executeSearch));
