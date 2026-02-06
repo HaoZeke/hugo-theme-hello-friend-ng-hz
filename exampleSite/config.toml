@@ -66,6 +66,7 @@ mediaType = "application/toml"
   isTheme = true # ONLY for the exampleSite!!
   praiseNetlify = false
   showHumanAuthorBadge = false
+  littlefoot = true # js footnote popups
 
   # Metadata mostly used in document's head
   description = "Nice theme for homepages and blogs"

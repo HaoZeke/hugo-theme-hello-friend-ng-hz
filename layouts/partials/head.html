@@ -21,6 +21,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
       type="text/css">
 
+{{- if .Site.Params.littlefoot }}
+<link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css" />
+{{- end}}
+
 {{ $options := (dict "targetPath" "main.css" "outputStyle" "compressed" "enableSourceMap" true "transpiler" "dartsass" "vars" site.Params.style) }}
 {{ $style := resources.Get "scss/main.scss" |  css.Sass $options | css.PostCSS (dict "config" "config/postcss.config.js") | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">

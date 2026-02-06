@@ -1,0 +1,101 @@
+/* LittleFoot styles */
+:root {
+  --bg-secondary: #{$light-background-secondary};
+  --text-primary: #{$light-color};
+  --border-color: #{$light-border-color};
+  --color-brand: #{$link-color};
+}
+
+body.dark-theme {
+  --bg-secondary: #{$dark-background-secondary};
+  --text-primary: #{$dark-color};
+  --border-color: #{$dark-border-color};
+}
+
+/* Override Littlefoot's internal variable system */
+.littlefoot {
+  --popover-background-color: var(--bg-secondary);
+  --popover-text-color: var(--text-primary);
+  --popover-border: 1px solid var(--border-color);
+  
+  --button-background-color: var(--bg-secondary);
+  --button-text-color: var(--color-brand);
+  --button-active-background-color: var(--color-brand);
+  --button-active-text-color: var(--bg-secondary);
+  
+  --popover-font-family: #{$sans-serif};
+  --popover-font-size: 0.95rem;
+  --popover-line-height: #{$body-line-height};
+}
+
+/* Force styles on marker buttons to ensure theme persistence */
+.littlefoot__button {
+  border: 1px solid var(--border-color) !important;
+  font-family: $mono !important;
+  font-weight: bold !important;
+  transition: var(--transition) !important;
+
+  &:hover,
+  &:focus,
+  &.is-active {
+    background-color: var(--color-brand) !important;
+    color: var(--bg-primary) !important;
+    border-color: var(--color-brand) !important;
+  }
+}
+
+/* Deep overrides for the popover components */
+.littlefoot__popover {
+  /* Inherit the popover-specific background for the entire area */
+  background-color: var(--popover-background-color) !important;
+
+  .littlefoot__wrapper {
+    background-color: var(--popover-background-color) !important;
+    color: var(--popover-text-color) !important;
+    box-shadow: none !important;
+  }
+
+  .littlefoot__content {
+    background-color: var(--popover-background-color) !important;
+    color: var(--popover-text-color) !important;
+    padding: 14px 20px !important;
+  }
+
+  /* Sync the triangle arrow with the theme border and background */
+  .littlefoot__tooltip {
+    background-color: var(--popover-background-color) !important;
+    border: 1px solid var(--border-color) !important;
+  }
+}
+
+/* Fallback for standard Hugo footnotes at bottom of page */
+.footnotes {
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: var(--color-secondary, #{$light-color-secondary});
+  border-top: 1px solid var(--border-color, #{$light-border-color});
+  padding-top: 1.5rem;
+
+  hr {
+    display: none; /* Hide the double line Hugo generates */
+  }
+
+  ol {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footnote-backref {
+    text-decoration: none;
+    margin-left: 5px;
+    font-size: 0.75rem;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
