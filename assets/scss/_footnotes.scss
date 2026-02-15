@@ -1,28 +1,16 @@
-/* LittleFoot styles */
-:root {
-  --bg-secondary: #{$light-background-secondary};
-  --text-primary: #{$light-color};
-  --border-color: #{$light-border-color};
-  --color-brand: #{$link-color};
-}
-
-body.dark-theme {
-  --bg-secondary: #{$dark-background-secondary};
-  --text-primary: #{$dark-color};
-  --border-color: #{$dark-border-color};
-}
+@use "config" as *;
 
 /* Override Littlefoot's internal variable system */
 .littlefoot {
   --popover-background-color: var(--bg-secondary);
-  --popover-text-color: var(--text-primary);
-  --popover-border: 1px solid var(--border-color);
-  
+  --popover-text-color: var(--fg);
+  --popover-border: 1px solid var(--border);
+
   --button-background-color: var(--bg-secondary);
-  --button-text-color: var(--color-brand);
-  --button-active-background-color: var(--color-brand);
+  --button-text-color: var(--link);
+  --button-active-background-color: var(--link);
   --button-active-text-color: var(--bg-secondary);
-  
+
   --popover-font-family: #{$sans-serif};
   --popover-font-size: 0.95rem;
   --popover-line-height: #{$body-line-height};
@@ -30,23 +18,21 @@ body.dark-theme {
 
 /* Force styles on marker buttons to ensure theme persistence */
 .littlefoot__button {
-  border: 1px solid var(--border-color) !important;
+  border: 1px solid var(--border) !important;
   font-family: $mono !important;
   font-weight: bold !important;
   transition: var(--transition) !important;
 
-  &:hover,
-  &:focus,
+  &:where(:hover, :focus),
   &.is-active {
-    background-color: var(--color-brand) !important;
-    color: var(--bg-primary) !important;
-    border-color: var(--color-brand) !important;
+    background-color: var(--link) !important;
+    color: var(--bg) !important;
+    border-color: var(--link) !important;
   }
 }
 
 /* Deep overrides for the popover components */
 .littlefoot__popover {
-  /* Inherit the popover-specific background for the entire area */
   background-color: var(--popover-background-color) !important;
 
   .littlefoot__wrapper {
@@ -61,10 +47,9 @@ body.dark-theme {
     padding: 14px 20px !important;
   }
 
-  /* Sync the triangle arrow with the theme border and background */
   .littlefoot__tooltip {
     background-color: var(--popover-background-color) !important;
-    border: 1px solid var(--border-color) !important;
+    border: 1px solid var(--border) !important;
   }
 }
 
@@ -72,16 +57,16 @@ body.dark-theme {
 .footnotes {
   margin-top: 4rem;
   font-size: 0.85rem;
-  color: var(--color-secondary, #{$light-color-secondary});
-  border-top: 1px solid var(--border-color, #{$light-border-color});
+  color: var(--fg-secondary);
+  border-top: 1px solid var(--border);
   padding-top: 1.5rem;
 
   hr {
-    display: none; /* Hide the double line Hugo generates */
+    display: none;
   }
 
   ol {
-    padding-left: 1.5rem;
+    padding-inline-start: 1.5rem;
   }
 
   li {
@@ -90,7 +75,7 @@ body.dark-theme {
 
   .footnote-backref {
     text-decoration: none;
-    margin-left: 5px;
+    margin-inline-start: 5px;
     font-size: 0.75rem;
     opacity: 0.6;
 

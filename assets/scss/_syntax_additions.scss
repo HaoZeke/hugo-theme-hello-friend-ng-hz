@@ -1,9 +1,5 @@
 .chroma {
   .hl {
-    // TODO(rg): This is because the code is always dark
-    background-color: $dark-highlight;
-    body.dark-theme & {
-      background-color: $dark-highlight;
-    }
+    background-color: var(--highlight);
   }
 }

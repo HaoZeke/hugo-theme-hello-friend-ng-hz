@@ -1,4 +1,0 @@
-@use "sass:math";
-@function pow($number, $exponent) {
-  @return math.pow($number, $exponent);
-}

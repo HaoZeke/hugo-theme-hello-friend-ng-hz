@@ -1,19 +1,17 @@
+@use "config" as *;
+
 #toggleMenu {
   background: none;
 }
 
 .menu {
-  background: #fafafa;
-  border-right: 1px solid;
-
-  .dark-theme & {
-    background: #252627;
-  }
+  background: var(--bg-header);
+  border-inline-end: 1px solid;
 
   @media #{$media-size-phone} {
     position: absolute;
     top: 50px;
-    right: 0;
+    inset-inline-end: 0;
     border: none;
     margin: 0;
     padding: 10px;
@@ -54,7 +52,7 @@
 
   a {
     display: inline-block;
-    margin-right: 15px;
+    margin-inline-end: 15px;
     text-decoration: none;
 
     &:hover {
@@ -62,7 +60,7 @@
     }
 
     &:last-of-type {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
   }
 }

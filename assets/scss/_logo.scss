@@ -1,3 +1,5 @@
+@use "config" as *;
+
 .logo {
   display: flex;
   align-items: center;
@@ -11,7 +13,7 @@
   }
 
   &__mark {
-    margin-right: 5px;
+    margin-inline-end: 5px;
   }
 
   &__text {
@@ -23,7 +25,7 @@
     width: 10px;
     height: 1rem;
     background: $logo-cursor-color;
-    margin-left: 5px;
+    margin-inline-start: 5px;
     border-radius: 1px;
     animation: cursor 1s infinite;
   }

@@ -1,3 +1,5 @@
+@use "config" as *;
+
 .post {
   width: 100%;
   max-width: 60vw;
@@ -70,11 +72,11 @@
     }
 
     svg {
-      margin-right: 0.8em;
+      margin-inline-end: 0.8em;
     }
 
     .tag {
-      margin-right: 0.5em;
+      margin-inline-end: 0.5em;
 
       &::before {
         content: "#";
@@ -82,8 +84,8 @@
     }
 
     .author {
-      margin-right: 0.5em;
-      margin-left: -0.5em;
+      margin-inline-end: 0.5em;
+      margin-inline-start: -0.5em;
     }
 
     .feather {
@@ -102,7 +104,6 @@
 
 .pagination {
   min-width: 16rem;
-  // margin-top: 20px;
 
   &__title {
     display: flex;
@@ -114,24 +115,18 @@
       text-align: center;
       margin: 0 auto;
       padding: 5px 10px;
-      background: $light-background;
-      color: $light-color-secondary;
+      background: var(--bg);
+      color: var(--fg-secondary);
       font-size: 0.8rem;
       text-transform: uppercase;
       text-decoration: none;
       letter-spacing: 0.1em;
       z-index: 1;
-
-      .dark-theme & {
-        background: $dark-background;
-        color: $dark-color-secondary;
-      }
     }
 
     hr {
       position: absolute;
-      left: 0;
-      right: 0;
+      inset-inline: 0;
       width: 100%;
       margin-top: 15px;
       z-index: 0;
@@ -162,7 +157,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: $light-background-secondary;
+  background: var(--bg-secondary);
   font-size: 1rem;
   font-weight: 600;
   border-radius: 8px;
@@ -171,12 +166,8 @@
   cursor: pointer;
   appearance: none;
 
-  .dark-theme & {
-    background: $dark-background-secondary;
-  }
-
   + .button {
-    margin-left: 10px;
+    margin-inline-start: 10px;
   }
 
   a {
@@ -185,8 +176,6 @@
     text-decoration: none;
     text-overflow: ellipsis;
     border-bottom: none;
-    // white-space: nowrap;
-    // overflow: hidden;
   }
 
   &__text {
@@ -196,23 +185,20 @@
   }
 
   &.next .button__icon {
-    margin-left: 8px;
+    margin-inline-start: 8px;
   }
 
   &.previous .button__icon {
-    margin-right: 8px;
+    margin-inline-end: 8px;
   }
 }
 
 .author__bio {
   text-align: center;
   min-width: 5vw;
-  margin-left: 2vw;
+  margin-inline-start: 2vw;
   a {
-    border-bottom: $link-color 0.125em solid;
-    .dark-theme & {
-      border-bottom: darken($link-color, 15) 0.125em solid;
-    }
+    border-bottom: var(--link-border) 0.125em solid;
   }
 }
 
@@ -220,7 +206,7 @@
 {
     margin: 1em 0;
     padding: 0.5em 1em;
-    border-left: 0.5em solid $notice-color;
+    border-inline-start: 0.5em solid $notice-color;
     background-color: rgba($notice-color, 0.1);
 
     > *:first-child {

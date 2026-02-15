@@ -1,29 +1,9 @@
+@use "sass:math";
+@use "config" as *;
+
 html {
-  font-size: $base-text-xs;
-
-  @if (variable-exists($name: base-text-sm)) {
-    @include mq($sm) {
-      font-size: $base-text-sm;
-    }
-  }
-
-  @if (variable-exists($name: base-text-md)) {
-    @include mq($md) {
-      font-size: $base-text-md;
-    }
-  }
-
-  @if (variable-exists($name: base-text-lg)) {
-    @include mq($lg) {
-      font-size: $base-text-lg;
-    }
-  }
-
-  @if (variable-exists($name: base-text-xl)) {
-    @include mq($xl) {
-      font-size: $base-text-xl;
-    }
-  }
+  // Fluid from 18px (1.125rem) at 576px to 22px (1.375rem) at 1200px
+  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
 }
 
 body,
@@ -69,16 +49,9 @@ a {
     font-family: $serif;
     line-height: $heading-line-height;
     font-weight: $bold;
-    font-size: $heading-base-size * pow($heading-scale-ratio, calc( 7/2 ) - $index);
+    font-size: $heading-base-size * math.pow($heading-scale-ratio, calc( 7/2 ) - $index);
   }
 }
-
-// @for $index from 1 through 4 {
-//   h#{$index} {
-//     font-weight: $bold;
-//     font-size: $heading-base-size * pow($heading-scale-ratio, 5/2 - $index);
-//   }
-// }
 
 code {
   font-family: $mono;
@@ -86,9 +59,10 @@ code {
 
 // Modified from: https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
+  background: var(--bg-blockquote);
+  border-inline-start: 10px solid var(--border);
+  margin-block: 1.5em;
+  margin-inline: 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 
@@ -98,11 +72,11 @@ blockquote {
   }
 
   &:before {
-    color: #ccc;
+    color: var(--border);
     content: open-quote;
     font-size: 4em;
     line-height: 0.1em;
-    margin-right: 0.25em;
+    margin-inline-end: 0.25em;
     vertical-align: -0.4em;
   }
   p {
@@ -116,15 +90,7 @@ blockquote {
       margin-bottom: 0;
     }
   }
-
-  .dark-theme & {
-    background: $dark-border-color;
-  }
 }
-
-// .post-title {
-//   font-size: xxx-large !important;
-// }
 
 .post-content {
   .button {
@@ -133,28 +99,19 @@ blockquote {
       border-bottom: none !important;
     }
   }
-a {
-  &[href^="/"],
-  &[href*="#{$site-url}"],
-  &[href^="#"] {
-    border-bottom: $link-color 0.125em solid;
-    .dark-theme & {
-      border-bottom: darken($link-color, 15) 0.125em solid;
+  a {
+    &[href^="/"],
+    &[href*="#{$site-url}"],
+    &[href^="#"] {
+      border-bottom: var(--link-border) 0.125em solid;
     }
-  }
 
-  &:not([href^="/"]):not([href*="#{$site-url}"]):not([href^="#"]) {
-    border-bottom: $external-link-color 0.125em solid;
-    .dark-theme & {
-      border-bottom: darken($external-link-color, 15) 0.125em solid;
+    &:not([href^="/"]):not([href*="#{$site-url}"]):not([href^="#"]) {
+      border-bottom: var(--link-external-border) 0.125em solid;
     }
   }
-}
 }
 
 #search-query {
-  color: $link-color !important;
-  .dark-theme & {
-    border-bottom: darken($link-color, 15);
-  }
+  color: var(--link) !important;
 }

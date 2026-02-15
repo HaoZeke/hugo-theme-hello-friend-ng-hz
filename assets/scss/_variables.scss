@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @use "hugo:vars" as h;
 
 /* Common Colors */
@@ -29,27 +28,20 @@ $media-size-phone: "(max-width: 684px)";
 $media-size-tablet: "(max-width: 900px)";
 $sidebar-width: "1fr";
 
+/* Breakpoints */
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
 /* Typography */
 $serif: Bookerly, Palatino, Book Antiqua, serif;
 $sans-serif: "geomanist", "Inter UI", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
   Helvetica, Arial, sans-serif;
 $mono: Cascadia, Hack, Consolas, Monaco, "Ubuntu Mono", Menlo, Consolas, monospace;
-$browser-context: 18px;
 
-// Responsive Types
 // Weights
-$regular: 400;
 $bold: 800;
-
-// Sizes
-$base-text-xs: em(18); // required
-$base-text-sm: em(19);
-$base-text-md: em(20);
-$base-text-lg: em(21);
-$base-text-xl: em(22);
-
-// Color
-$default-color: rgb(40, 40, 40);
 
 // Headings
 $heading-base-size: 1.05em;
@@ -59,10 +51,38 @@ $heading-scale-ratio: 1.333;
 $heading-line-height: 1;
 $body-line-height: 1.566;
 
-/* variables for js, must be the same as those in @custom-media queries */
+/* Design tokens as CSS custom properties */
 :root {
+  --bg: #{$light-background};
+  --bg-secondary: #{$light-background-secondary};
+  --fg: #{$light-color};
+  --fg-secondary: #{$light-color-secondary};
+  --border: #{$light-border-color};
+  --highlight: #{$light-highlight};
+  --bg-header: #fafafa;
+  --bg-blockquote: #f9f9f9;
+  --link: #{$link-color};
+  --link-external: #{$external-link-color};
+  --link-border: #{$link-color};
+  --link-external-border: #{$external-link-color};
+  --font-sans: #{$sans-serif};
+  --font-serif: #{$serif};
+  --font-mono: #{$mono};
   --phoneWidth: #{$media-size-phone};
   --tabletWidth: #{$media-size-tablet};
   --sidebar-width: #{$sidebar-width};
   --transition: 0.25s ease;
+}
+
+.dark-theme {
+  --bg: #{$dark-background};
+  --bg-secondary: #{$dark-background-secondary};
+  --fg: #{$dark-color};
+  --fg-secondary: #{$dark-color-secondary};
+  --border: #{$dark-border-color};
+  --highlight: #{$dark-highlight};
+  --bg-header: #252627;
+  --bg-blockquote: #{$dark-border-color};
+  --link-border: color-mix(in srgb, #{$link-color} 85%, black);
+  --link-external-border: color-mix(in srgb, #{$external-link-color} 85%, black);
 }
