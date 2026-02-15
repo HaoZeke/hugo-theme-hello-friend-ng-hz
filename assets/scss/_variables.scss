@@ -61,6 +61,7 @@ $body-line-height: 1.566;
   --highlight: #{$light-highlight};
   --bg-header: #fafafa;
   --bg-blockquote: #f9f9f9;
+  --border-blockquote: #ccc;
   --link: #{$link-color};
   --link-external: #{$external-link-color};
   --link-border: #{$link-color};
@@ -83,6 +84,7 @@ $body-line-height: 1.566;
   --highlight: #{$dark-highlight};
   --bg-header: #252627;
   --bg-blockquote: #{$dark-border-color};
+  --border-blockquote: #f0f0f0;
   --link-border: color-mix(in srgb, #{$link-color} 85%, black);
   --link-external-border: color-mix(in srgb, #{$external-link-color} 85%, black);
 }

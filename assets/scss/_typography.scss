@@ -60,7 +60,7 @@ code {
 // Modified from: https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
 blockquote {
   background: var(--bg-blockquote);
-  border-inline-start: 10px solid var(--border);
+  border-inline-start: 10px solid var(--border-blockquote);
   margin-block: 1.5em;
   margin-inline: 10px;
   padding: 0.5em 10px;
@@ -72,7 +72,7 @@ blockquote {
   }
 
   &:before {
-    color: var(--border);
+    color: var(--border-blockquote);
     content: open-quote;
     font-size: 4em;
     line-height: 0.1em;
