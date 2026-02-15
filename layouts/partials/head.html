@@ -1,6 +1,5 @@
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ range site.Params.Author }}{{ . }} {{ end }}{{ end }}">
 <meta name="description" content="{{ if .IsHome }}{{ site.Params.homeSubtitle }}{{ else }}{{ .Description | default ( .Summary | plainify ) }}{{ end }}" />
 <meta name="keywords" content="{{ site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}" />
