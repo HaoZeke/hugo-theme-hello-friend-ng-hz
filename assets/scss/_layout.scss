@@ -1,3 +1,5 @@
+@use "config" as *;
+
 .container {
   display: grid;
   grid-template-rows: auto auto auto auto;
@@ -9,13 +11,9 @@
     "footer footer footer footer footer";
 }
 .header {
-  background: #fafafa;
+  background: var(--bg-header);
   padding: 20px;
   grid-area: header;
-
-  .dark-theme & {
-    background: #252627;
-  }
 
   &__inner {
     display: flex;
@@ -74,7 +72,7 @@
 }
 
 .footer {
-  color: $light-color-secondary;
+  color: var(--fg-secondary);
   bottom: 0;
   grid-area: footer;
   justify-items: center;
@@ -86,26 +84,19 @@
   font-size: smaller;
   .hideTOC,
   .author__bio {
-    margin-top: em(150);
+    margin-top: 8.333em;
     position: sticky;
-    top: em(15);
+    top: 0.833em;
   }
 
   .author__img {
     border-radius: 50%;
-    padding: em(10);
+    padding: 0.556em;
   }
-  // #tocTog {
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // }
 }
 
 .listCont {
   grid-area: main;
-  // grid-row: 2;
-  // grid-column-start: 1;
-  // grid-column-end: 6;
 }
 
 .m-fadeOut {
@@ -137,36 +128,11 @@
 
 #comments {
   grid-area: comment;
-  .dark-theme & {
-    .idc-text_noresize,
-    .idc-text {
-      background: $dark-background !important;
-      color: $dark-color-secondary !important;
-      font-size: $base-text-xs;
 
-      @if (variable-exists($name: base-text-sm)) {
-        @include mq($sm) {
-          font-size: $base-text-sm;
-        }
-      }
-
-      @if (variable-exists($name: base-text-md)) {
-        @include mq($md) {
-          font-size: $base-text-md;
-        }
-      }
-
-      @if (variable-exists($name: base-text-lg)) {
-        @include mq($lg) {
-          font-size: $base-text-lg;
-        }
-      }
-
-      @if (variable-exists($name: base-text-xl)) {
-        @include mq($xl) {
-          font-size: $base-text-xl;
-        }
-      }
-    }
+  .idc-text_noresize,
+  .idc-text {
+    background: var(--bg) !important;
+    color: var(--fg-secondary) !important;
+    font-size: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
   }
 }

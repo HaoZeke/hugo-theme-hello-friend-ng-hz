@@ -1,4 +1,2 @@
-@import "dim";
-@import "mq";
-// @import "underline";
-@import "viewpoint";
+@forward "dim";
+@forward "mq";

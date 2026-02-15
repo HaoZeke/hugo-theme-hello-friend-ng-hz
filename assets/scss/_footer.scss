@@ -1,7 +1,9 @@
+@use "config" as *;
+
 .footer {
   padding: 40px 20px;
   flex-grow: 0;
-  color: $light-color-secondary;
+  color: var(--fg-secondary);
 
   &__inner {
     display: flex;
@@ -21,7 +23,7 @@
     flex-direction: row;
     align-items: center;
     font-size: 1rem;
-    color: $light-color-secondary;
+    color: var(--fg-secondary);
 
     @media #{$media-size-tablet} {
       flex-direction: column;

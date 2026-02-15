@@ -1,3 +1,5 @@
+@use "config" as *;
+
 .posts {
   width: 100%;
   max-width: 1000px;
@@ -7,17 +9,13 @@
   }
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid $light-border-color;
-
-    .dark-theme & {
-      border-color: $dark-border-color;
-    }
+    border-bottom: 1px solid var(--border);
   }
 
   &-group {
     display: flex;
     margin-bottom: 1.9em;
-    margin-left: 1.9em;
+    margin-inline-start: 1.9em;
     line-height: normal;
 
     @media #{$media-size-tablet} {
@@ -45,7 +43,7 @@
 
     &-year {
       padding-top: 6px;
-      margin-right: 1.8em;
+      margin-inline-end: 1.8em;
       font-size: 1.6em;
       @include dimmed;
 
@@ -68,7 +66,7 @@
 
     &-day {
       flex-shrink: 0;
-      margin-left: 1em;
+      margin-inline-start: 1em;
       @include dimmed;
     }
   }

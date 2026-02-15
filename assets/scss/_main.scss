@@ -1,11 +1,9 @@
+@use "config" as *;
+
 body {
-  background-color: $light-background;
-  color: $light-color;
+  background-color: var(--bg);
+  color: var(--fg);
   text-rendering: optimizeLegibility;
-  &.dark-theme {
-    background-color: $dark-background;
-    color: $dark-color;
-  }
 }
 
 img {
@@ -13,16 +11,15 @@ img {
   max-width: 100%;
 
   &.left {
-    margin-right: auto;
+    margin-inline-end: auto;
   }
 
   &.center {
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
   }
 
   &.right {
-    margin-left: auto;
+    margin-inline-start: auto;
   }
 }
 
@@ -32,16 +29,15 @@ figure {
   margin: 25px 0;
 
   &.left {
-    margin-right: auto;
+    margin-inline-end: auto;
   }
 
   &.center {
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
   }
 
   &.right {
-    margin-left: auto;
+    margin-inline-start: auto;
   }
 
   figcaption {
@@ -65,14 +61,10 @@ figure {
 code {
   font-display: auto;
   font-feature-settings: normal;
-  background: $light-background-secondary;
+  background: var(--bg-secondary);
   padding: 1px 6px;
   margin: 0 2px;
   border-radius: 5px;
-
-  .dark-theme & {
-    background: $dark-background-secondary;
-  }
 }
 
 pre {
@@ -88,23 +80,19 @@ pre {
 
   code {
     background: none !important;
-    color: #ccc;
+    color: inherit;
     margin: 0;
     padding: 0;
-
-    .dark-theme & {
-      color: inherit;
-    }
   }
 }
 
 ul,
 ol {
-  margin-left: 40px;
+  margin-inline-start: 40px;
   padding: 0;
 
   @media #{$media-size-phone} {
-    margin-left: 20px;
+    margin-inline-start: 20px;
   }
 }
 
@@ -115,12 +103,8 @@ ol ol {
 hr {
   width: 100%;
   border: none;
-  background: $light-border-color;
+  background: var(--border);
   height: 1px;
-
-  .dark-theme & {
-    background: $dark-border-color;
-  }
 }
 
 .hidden {
@@ -165,7 +149,7 @@ hr {
   height: auto;
   width: auto;
   top: 5px;
-  left: 5px;
+  inset-inline-start: 5px;
   line-height: normal;
   padding: 15px 23px 14px;
   text-decoration: none;

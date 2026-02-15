@@ -1,29 +1,23 @@
-// @import "lib/responsive_type/index";
-@import "lib/responsive_type/vars";
-@import "css/modern-normalize";
-// @import "lib/typographic";
+@use "css/modern-normalize";
+@use "config";
 
-@import "mixins/mix";
-@import "functions/func";
+@use "fonts";
+@use "typography";
+@use "layout";
 
-@import "variables";
-@import "fonts";
-@import "typography";
-@import "layout";
+@use "buttons";
+@use "webmention";
+@use "footnotes";
+@use "social-signs";
+@use "syntax";
+@use "syntax_additions";
+@use "alerts";
 
-@import "buttons";
-@import "webmention";
-@import "footnotes";
-@import "social-signs";
-@import "syntax";
-@import "syntax_additions";
-@import "alerts";
+@use "search";
+@use "logo";
+@use "menu";
+@use "main";
+@use "list";
+@use "single";
 
-@import "search";
-@import "logo";
-@import "menu";
-@import "main";
-@import "list";
-@import "single";
-
-@import "copybutton";
+@use "copybutton";

@@ -1,5 +1,4 @@
-@import "variables";
-@import "mixins/mq";
+@use "config" as *;
 
 .webmentions-container {
   margin-top: 3rem;
@@ -47,7 +46,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding-left: 0.25rem;
+    padding-inline-start: 0.25rem;
   }
 
   &__item {
@@ -107,7 +106,7 @@
   }
 
   &__content {
-    padding-left: calc(42px + 0.75rem);
+    padding-inline-start: calc(42px + 0.75rem);
     color: var(--fg);
     line-height: 1.7;
     font-size: 0.95rem;
