@@ -6,9 +6,6 @@
 
         {{ if (eq .Site.Params.Search.Enable true) }}
         <div class="header__mid">
-        {{- if eq .Site.Params.Search.Backend "docsearch" }}
-            <div id="docsearch"></div>
-        {{- else }}
         <button class="button">
             <div class="button__text">
         <a href="{{ .Site.BaseURL }}/search" >
@@ -16,7 +13,6 @@
         </a>
             </div>
         </button>
-        {{- end }}
         </div>
        {{ end }}
 
