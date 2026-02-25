@@ -56,6 +56,18 @@
 {{ end }}
 {{- end}}
 
+{{- if and .Site.Params.Search.Enable (eq .Site.Params.Search.Backend "docsearch") }}
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script>
+  docsearch({
+    container: '#docsearch',
+    appId: '{{ .Site.Params.Algolia.appID }}',
+    indexName: '{{ .Site.Params.Algolia.indexName }}',
+    apiKey: '{{ .Site.Params.Algolia.apiKey }}',
+  });
+</script>
+{{- end }}
+
 {{ range $val := $.Site.Params.customJS }}
 	{{ if gt (len $val) 0 }}
 		<script src="{{ $val }}"></script>

@@ -43,6 +43,10 @@
     <link rel="pingback" href="{{ site.Params.Webmention.pingback }}" />
 {{ end }}
 
+{{- if and .Site.Params.Search.Enable (eq .Site.Params.Search.Backend "docsearch") }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+{{- end }}
+
 {{- partial "favicons.html" . }}
 
 {{- template "_internal/schema.html" . }}
