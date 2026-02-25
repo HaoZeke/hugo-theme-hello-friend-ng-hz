@@ -56,15 +56,20 @@
 {{ end }}
 {{- end}}
 
-{{- if and .Site.Params.Search.Enable (eq .Site.Params.Search.Backend "docsearch") }}
+{{- if and .Site.Params.Search.Enable (eq .Site.Params.Search.Backend "docsearch") .Site.Params.Algolia }}
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script>
-  docsearch({
-    container: '#docsearch',
+  var dsOpts = {
     appId: '{{ .Site.Params.Algolia.appID }}',
     indexName: '{{ .Site.Params.Algolia.indexName }}',
     apiKey: '{{ .Site.Params.Algolia.apiKey }}',
-  });
+  };
+  if (document.getElementById('docsearch')) {
+    docsearch(Object.assign({ container: '#docsearch' }, dsOpts));
+  }
+  if (document.getElementById('docsearch-footer')) {
+    docsearch(Object.assign({ container: '#docsearch-footer' }, dsOpts));
+  }
 </script>
 {{- end }}
 

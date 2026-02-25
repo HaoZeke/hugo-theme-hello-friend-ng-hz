@@ -16,4 +16,7 @@
                 {{ partial "liberapay.html" . }}
                 {{ end }}
     </p>
+    {{- if and .Site.Params.Search.Enable (eq .Site.Params.Search.Backend "docsearch") .Site.Params.Algolia }}
+    <div id="docsearch-footer"></div>
+    {{- end }}
 </footer>
