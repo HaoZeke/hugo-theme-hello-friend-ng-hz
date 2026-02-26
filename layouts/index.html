@@ -8,7 +8,8 @@
             {{- end }}
 
             {{- with .Site.Params.homeAddl }}
-                <p>{{.}}</p>
+                <br>
+                <p>{{ . | markdownify }}</p>
             {{- end }}
 
             {{- with .Site.Params.social }}
