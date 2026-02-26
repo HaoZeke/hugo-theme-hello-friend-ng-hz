@@ -7,16 +7,16 @@
                 <p>{{.}}</p>
             {{- end }}
 
-            {{- with .Site.Params.homeAddl }}
-                <br>
-                <p>{{ . | markdownify }}</p>
-            {{- end }}
-
             {{- with .Site.Params.social }}
                 <div>
                     {{ partial "social-icons.html" . }}
                 </div>
             {{- end }}
+
+            {{- with .Site.Params.homeAddl }}
+                <p>{{ . | markdownify }}</p>
+            {{- end }}
+
         </div>
     </section>
 {{ end }}
