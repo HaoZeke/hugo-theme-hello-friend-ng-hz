@@ -27,19 +27,20 @@
 </script>
 {{- end}}
 
+
 {{- if .Site.Params.GoatCounter }}
-<script data-goatcounter="https://{{.Site.Params.GoatCounter}}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-{{- end}}
+<script data-goatcounter="https://{{ .Site.Params.GoatCounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{{- end }}
+
+{{- if .Site.Params.Plausible }}
+<script defer data-domain="{{ .Site.Params.Plausible.dataDomain }}" src="https://{{ .Site.Params.Plausible.host }}/js/script.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+{{- end }}
 
 {{- if .Site.Params.Umami }}
 <script defer src="https://{{ .Site.Params.Umami.host }}/script.js" data-website-id="{{ .Site.Params.Umami.websiteId }}"></script>
 <script>window.umami=window.umami||{track:function(){}};document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.hostname!==location.hostname)umami.track('Outbound Link',{url:a.href})});</script>
 {{- end }}
-{{- if .Site.Params.Plausible }}
-<script defer data-domain="{{ .Site.Params.Plausible.dataDomain }}" src="https://{{ .Site.Params.Plausible.host }}/js/script.hash.outbound-links.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) };</script>
-{{- end }}
-
 
 {{- if .Site.Params.Clicky }}
 <script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push({{.Site.Params.Clicky}});</script>
