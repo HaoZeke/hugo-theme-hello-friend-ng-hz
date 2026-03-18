@@ -1,0 +1,10 @@
+<script>
+  var remark_config = {
+    host: "{{ .Site.Params.Remark42.Host }}",
+    site_id: "{{ .Site.Params.Remark42.SiteID }}",
+    components: ["embed"],
+    theme: document.documentElement.getAttribute("data-theme") || "dark"
+  };
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script");r.type="text/javascript",r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+".js",n.head.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+<div id="remark42"></div>

@@ -14,4 +14,6 @@
     {{ partial "commentbox.html" . }}
 {{- else if .Site.Params.RemarkBox }}
     {{ partial "remarkbox.html" . }}
+{{- else if .Site.Params.Remark42 }}
+    {{ partial "remark42.html" . }}
 {{- end }}
