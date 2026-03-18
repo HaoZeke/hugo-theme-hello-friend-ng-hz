@@ -16,4 +16,6 @@
     {{ partial "remarkbox.html" . }}
 {{- else if .Site.Params.Remark42 }}
     {{ partial "remark42.html" . }}
+{{- else if .Site.Params.TtechComments }}
+    {{ partial "ttech-comments.html" . }}
 {{- end }}
