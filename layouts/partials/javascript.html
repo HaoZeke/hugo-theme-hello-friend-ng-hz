@@ -81,6 +81,12 @@
   if (document.getElementById('docsearch-footer')) {
     docsearch(Object.assign({ container: '#docsearch-footer' }, dsOpts));
   }
+  // Accessibility: title injected iframes
+  setTimeout(function() {
+    document.querySelectorAll('iframe:not([title])').forEach(function(f) {
+      f.setAttribute('title', 'Search widget');
+    });
+  }, 1000);
 </script>
 {{- end }}
 
