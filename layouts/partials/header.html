@@ -19,7 +19,7 @@
         <div class="header__right">
             {{ if len .Site.Menus }}
                 {{ partial "menu.html" . }}
-            <button id="toggleMenu">
+            <button id="toggleMenu" aria-label="Toggle menu">
                 <div class="menu-trigger">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M0 0h24v24H0z" fill="none"/>
@@ -29,7 +29,7 @@
              </button>
             {{ end }}
 
-            <button class="theme-toggle" id="toggleTheme">{{ partial "theme-icon.html" . }}</button>
+            <button class="theme-toggle" id="toggleTheme" aria-label="Toggle theme">{{ partial "theme-icon.html" . }}</button>
         </div>
     </div>
 </header>
