@@ -42,6 +42,11 @@
 <script>window.umami=window.umami||{track:function(){}};document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.hostname!==location.hostname)umami.track('Outbound Link',{url:a.href})});</script>
 {{- end }}
 
+{{- if .Site.Params.Antics }}
+<script defer src="{{ .Site.Params.Antics.host | default "https://antics.turtletech.us" }}/antics.js"></script>
+<script>window.antics=window.antics||{event:function(){}};document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.hostname!==location.hostname)antics.event('Outbound Link',{url:a.href})});</script>
+{{- end }}
+
 {{- if .Site.Params.Clicky }}
 <script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push({{.Site.Params.Clicky}});</script>
 <script async src="https://static.getclicky.com/js"></script>

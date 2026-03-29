@@ -25,7 +25,12 @@
                   <a href="https://plausible.io/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline">Plausible</a>
                 </span>
 {{- end }}
-{{- if and (or .Site.Params.Umami .Site.Params.Plausible) (not .Site.Params.DisableTurtleTechAttribution) }}
+{{- if .Site.Params.Antics }}
+                <span>Analytics by
+                  <a href="https://antics.turtletech.us/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline">Antics</a>
+                </span>
+{{- end }}
+{{- if and (or .Site.Params.Umami .Site.Params.Plausible .Site.Params.Antics) (not .Site.Params.DisableTurtleTechAttribution) }}
                 <span style="display: inline-flex; align-items: center; gap: 0.3em; flex-wrap: wrap;">
                   <span style="display: inline-flex; align-items: center; gap: 0.3em">
                     <span>provided by</span>
