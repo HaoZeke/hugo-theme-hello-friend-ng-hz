@@ -42,7 +42,7 @@
                 </span></br>
 {{- end }}
     </p>
-    {{- if and .Site.Params.Search.Enable (eq .Site.Params.Search.Backend "docsearch") .Site.Params.Algolia }}
-    <div id="docsearch-footer"></div>
-    {{- end }}
 </footer>
+{{- if and .Site.Params.Search.Enable (eq .Site.Params.Search.Backend "docsearch") .Site.Params.Algolia }}
+<div id="docsearch-footer" style="text-align: center; padding: 0.5rem 0 1rem;"></div>
+{{- end }}
