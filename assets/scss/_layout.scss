@@ -39,6 +39,10 @@
   }
 
   &__mid {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
     .button {
       max-width: 100%;
     }
