@@ -24,7 +24,7 @@
             {{- end }}
 
             {{ with .Params.Cover }}
-                <img src="/img/{{ . }}" class="post-cover" />
+                <img src="/img/{{ . }}" class="post-cover" alt="Cover image for {{ $.Title }}" loading="lazy" />
             {{ end }}
 
             <div class="post-content">
