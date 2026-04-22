@@ -43,7 +43,7 @@
 {{- end }}
 
 {{- if .Site.Params.Antics }}
-<script defer src="{{ .Site.Params.Antics.host | default "https://antics-api.turtletech.us" }}/antics.js"></script>
+<script defer src="{{ .Site.Params.Antics.host | default "https://antics-api.turtletech.us" }}/antics.js?v=2026-04-19-attention"></script>
 <script>window.antics=window.antics||{event:function(){}};document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.hostname!==location.hostname)antics.event('Outbound Link',{url:a.href})});</script>
 {{- end }}
 
@@ -100,4 +100,3 @@
 		<script src="{{ $val }}"></script>
 	{{ end }}
 {{ end }}
-
