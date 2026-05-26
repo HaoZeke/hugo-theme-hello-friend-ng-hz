@@ -1,6 +1,17 @@
 {{- $version := .Site.Params.TtechComments.Version | default "20260526-embed-cache" -}}
+{{- $host := strings.TrimSuffix "/" .Site.Params.TtechComments.Host -}}
+{{- $siteID := .Site.Params.TtechComments.SiteID -}}
+{{- $pageURL := strings.TrimSuffix "/" .Permalink -}}
 <script src="{{ .Site.Params.TtechComments.Host }}/widget.js?v={{ $version | urlquery }}"
-  data-site="{{ .Site.Params.TtechComments.SiteID }}"
+  data-site="{{ $siteID }}"
   data-theme="auto"
   data-locale="en"></script>
-<div id="ttech-comments"></div>
+<div id="ttech-comments">
+  <iframe
+    src="{{ $host }}/embed.html?site={{ $siteID | urlquery }}&amp;url={{ $pageURL | urlquery }}&amp;theme=auto&amp;locale=en&amp;v=3"
+    title="Babbler comments"
+    data-babbler-frame="1"
+    allowtransparency="true"
+    loading="eager"
+    style="width:100%;border:none;overflow:hidden;min-height:220px;background:transparent"></iframe>
+</div>
