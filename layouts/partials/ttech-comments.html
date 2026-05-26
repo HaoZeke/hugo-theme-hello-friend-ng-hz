@@ -1,4 +1,5 @@
-<script src="{{ .Site.Params.TtechComments.Host }}/widget.js"
+{{- $version := .Site.Params.TtechComments.Version | default "20260526-embed-cache" -}}
+<script src="{{ .Site.Params.TtechComments.Host }}/widget.js?v={{ $version | urlquery }}"
   data-site="{{ .Site.Params.TtechComments.SiteID }}"
   data-theme="auto"
   data-locale="en"></script>
