@@ -11,11 +11,6 @@
     ". comment comment comment ."
     "footer footer footer footer footer";
 }
-
-/* Named tracks only. A wrapper around the main block must not occupy a cell. */
-.container > #main-content {
-  display: contents;
-}
 .header {
   background: var(--bg-header);
   padding: 20px;
