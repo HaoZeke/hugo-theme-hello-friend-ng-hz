@@ -1,0 +1,42 @@
+{{- /* Cite this page: OokCite Webpage shape (@online), from front matter. No live API. */ -}}
+{{- if .IsPage -}}
+{{- $year := .Date.Format "2006" -}}
+{{- $date := .Date.Format "2006-01-02" -}}
+{{- $slug := .File.ContentBaseName | default .File.BaseFileName -}}
+{{- $key := printf "goswami%s%s" $year ($slug | replaceRE "[^a-zA-Z0-9]+" "") | lower -}}
+{{- $authors := slice -}}
+{{- with .Params.author -}}
+  {{- range . -}}
+    {{- $name := . | replaceRE `\s*\([^)]*\)` "" | strings.TrimSpace -}}
+    {{- $parts := split $name " " -}}
+    {{- if gt (len $parts) 1 -}}
+      {{- $family := index $parts (sub (len $parts) 1) -}}
+      {{- $given := delimit (first (sub (len $parts) 1) $parts) " " -}}
+      {{- $authors = $authors | append (printf "%s, %s" $family $given) -}}
+    {{- else -}}
+      {{- $authors = $authors | append $name -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq (len $authors) 0 -}}
+  {{- $authors = slice "Goswami, Rohit" -}}
+{{- end -}}
+{{- $authorField := delimit $authors " and " -}}
+{{- $title := .Title | plainify -}}
+<details class="cite-this-page">
+  <summary>Cite this page</summary>
+  <p class="cite-this-page__plain">{{ $authorField }} ({{ $year }}). <cite>{{ $title }}</cite>. {{ .Permalink }}</p>
+  <div class="cite-this-page__toolbar">
+    <span class="cite-this-page__label">BibTeX (<code>@online</code>)</span>
+    <button type="button" class="cite-this-page__copy">Copy</button>
+  </div>
+  <pre class="cite-this-page__bibtex"><code>@online{ {{- $key -}},
+  title = {{ "{" }}{{ $title }}{{ "}" }},
+  author = {{ "{" }}{{ $authorField }}{{ "}" }},
+  year = {{ "{" }}{{ $year }}{{ "}" }},
+  date = {{ "{" }}{{ $date }}{{ "}" }},
+  url = {{ "{" }}{{ .Permalink }}{{ "}" }},
+  language = {en}
+}</code></pre>
+</details>
+{{- end -}}

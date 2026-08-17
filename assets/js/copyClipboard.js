@@ -48,3 +48,21 @@ function addCopyButtonToDom(button, highlightDiv) {
 
 document.querySelectorAll(".highlight")
   .forEach(highlightDiv => createCopyButton(highlightDiv));
+
+document.querySelectorAll(".cite-this-page").forEach((box) => {
+  const button = box.querySelector(".cite-this-page__copy");
+  const code = box.querySelector(".cite-this-page__bibtex");
+  if (!button || !code) return;
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(code.innerText);
+    } catch (err) {
+      console.error("Failed to copy citation:", err);
+    } finally {
+      button.textContent = "Copied!";
+      setTimeout(() => {
+        button.textContent = "Copy";
+      }, 2000);
+    }
+  });
+});

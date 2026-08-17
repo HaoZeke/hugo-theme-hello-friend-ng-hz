@@ -227,3 +227,69 @@ div.post-series-top {
         font-weight: bold;
     }
 }
+
+.cite-this-page {
+  margin: 1.5em 0 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  summary {
+    cursor: pointer;
+    padding: 0.55em 0.85em;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    list-style-position: outside;
+  }
+
+  &[open] summary {
+    border-bottom: 1px solid var(--border);
+  }
+
+  &__plain {
+    margin: 0.85em 0.85em 0.4em;
+    font-size: 0.95em;
+  }
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75em;
+    margin: 0.4em 0.85em 0;
+  }
+
+  &__label {
+    font-size: 0.8em;
+    color: var(--fg-secondary);
+  }
+
+  &__copy {
+    font-size: 0.8em;
+    padding: 0.25em 0.7em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    color: inherit;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
+    }
+  }
+
+  &__bibtex {
+    margin: 0.5em 0 0;
+    padding: 0.85em;
+    overflow-x: auto;
+    background: var(--bg-secondary);
+    border-radius: 0 0 6px 6px;
+
+    code {
+      background: none;
+      padding: 0;
+      font-size: 0.85em;
+    }
+  }
+}
