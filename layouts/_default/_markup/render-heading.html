@@ -1,0 +1,6 @@
+<h{{ .Level }} id="{{ .Anchor }}"{{- with .Attributes.class }} class="{{ . }}"{{- end }}>
+  {{- .Text -}}
+  {{- if and .Anchor (ge .Level 2) (le .Level 3) }}
+  <a class="heading-anchor" href="#{{ .Anchor }}" aria-label="Permalink: {{ .PlainText }}"><span aria-hidden="true">#</span></a>
+  {{- end }}
+</h{{ .Level }}>
