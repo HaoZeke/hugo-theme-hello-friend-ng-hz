@@ -33,6 +33,8 @@ if (tocToggle) {
   const sideTOC = document.querySelector(".sideTOC");
   tocToggle.addEventListener("click", function () {
     sideTOC.classList.toggle("m-fadeOut");
+    const expanded = !sideTOC.classList.contains("m-fadeOut");
+    tocToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
     const current = getComputedStyle(document.documentElement).getPropertyValue("--sidebar-width");
     document.documentElement.style.setProperty(
       "--sidebar-width",

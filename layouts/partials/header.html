@@ -6,20 +6,16 @@
 
         {{ if (eq .Site.Params.Search.Enable true) }}
         <div class="header__mid">
-        <button class="button">
-            <div class="button__text">
-        <a href="{{ .Site.BaseURL }}/search" >
-                Search
+        <a class="button" href="{{ "search" | relLangURL }}">
+            <span class="button__text">Search</span>
         </a>
-            </div>
-        </button>
         </div>
        {{ end }}
 
         <div class="header__right">
             {{ if len .Site.Menus }}
                 {{ partial "menu.html" . }}
-            <button id="toggleMenu" aria-label="Toggle menu">
+            <button id="toggleMenu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">
                 <div class="menu-trigger">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M0 0h24v24H0z" fill="none"/>

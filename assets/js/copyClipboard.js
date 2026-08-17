@@ -3,6 +3,7 @@ function createCopyButton(highlightDiv) {
   button.className = "copy-code-button";
   button.type = "button";
   button.innerText = "Copy";
+  button.setAttribute("aria-live", "polite");
   button.addEventListener("click", () => copyCodeToClipboard(button, highlightDiv));
   addCopyButtonToDom(button, highlightDiv);
 }

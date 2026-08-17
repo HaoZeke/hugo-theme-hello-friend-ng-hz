@@ -2,8 +2,8 @@
     {{- if .Params.toc }}
     <aside class="sidebar">
         <div class="hideTOC">
-        <button id="tocTog">TOC</button>
-        <div class="sideTOC m-fadeOut">
+        <button id="tocTog" type="button" aria-expanded="false" aria-controls="sideTOC">Table of contents</button>
+        <div id="sideTOC" class="sideTOC m-fadeOut">
             {{ .TableOfContents }}
         </div>
         </div>

@@ -11,6 +11,13 @@ const isMobileMenu = () => {
 };
 
 isMobileMenu();
+syncMenuExpanded();
+
+function syncMenuExpanded() {
+  if (!menuButton || !menu) return;
+  const open = isMobile() && !menu.classList.contains("hidden");
+  menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+}
 
 menuButton.addEventListener("click", function () {
   if (isMobile()) {
@@ -18,6 +25,12 @@ menuButton.addEventListener("click", function () {
   }
 });
 
-menuTrigger && menuTrigger.addEventListener("click", () => menu && menu.classList.toggle("hidden"));
+menuTrigger && menuTrigger.addEventListener("click", () => {
+  menu && menu.classList.toggle("hidden");
+  syncMenuExpanded();
+});
 
-window.addEventListener("resize", isMobileMenu);
+window.addEventListener("resize", () => {
+  isMobileMenu();
+  syncMenuExpanded();
+});

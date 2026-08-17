@@ -100,14 +100,10 @@ blockquote {
     }
   }
   a {
-    &[href^="/"],
-    &[href*="#{$site-url}"],
-    &[href^="#"] {
-      border-bottom: var(--link-border) 0.125em solid;
-    }
+    border-bottom: 0.125em solid var(--link-border);
 
-    &:not([href^="/"]):not([href*="#{$site-url}"]):not([href^="#"]) {
-      border-bottom: var(--link-external-border) 0.125em solid;
+    &:not([href^="/"]):not([href^="#"]) {
+      border-bottom-color: var(--link-external-border);
     }
   }
 }
