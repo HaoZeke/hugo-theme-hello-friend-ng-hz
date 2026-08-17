@@ -118,3 +118,9 @@
 .DocSearch-Button-Placeholder {
   color: var(--fg-secondary) !important;
 }
+
+#docsearch-footer {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 0.75rem;
+}
