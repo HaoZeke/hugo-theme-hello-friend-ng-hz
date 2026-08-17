@@ -1,28 +1,53 @@
-{{- /* Cite this page: OokCite Webpage shape (@online), from front matter. No live API. */ -}}
+{{- /* Cite this page: OokCite Webpage @online. Key = ttech-cite citation_key (auth + shorttitle(3) + year). */ -}}
 {{- if .IsPage -}}
 {{- $year := .Date.Format "2006" -}}
 {{- $date := .Date.Format "2006-01-02" -}}
-{{- $slug := .File.ContentBaseName | default .File.BaseFileName -}}
-{{- $key := printf "goswami%s%s" $year ($slug | replaceRE "[^a-zA-Z0-9]+" "") | lower -}}
+{{- $title := .Title | plainify -}}
 {{- $authors := slice -}}
+{{- $familyKey := "unknown" -}}
 {{- with .Params.author -}}
-  {{- range . -}}
-    {{- $name := . | replaceRE `\s*\([^)]*\)` "" | strings.TrimSpace -}}
+  {{- range $i, $raw := . -}}
+    {{- $name := $raw | replaceRE `\s*\([^)]*\)` "" | strings.TrimSpace -}}
     {{- $parts := split $name " " -}}
     {{- if gt (len $parts) 1 -}}
       {{- $family := index $parts (sub (len $parts) 1) -}}
       {{- $given := delimit (first (sub (len $parts) 1) $parts) " " -}}
       {{- $authors = $authors | append (printf "%s, %s" $family $given) -}}
+      {{- if eq $i 0 -}}
+        {{- $familyKey = $family | replaceRE "[^A-Za-z]" "" | lower -}}
+      {{- end -}}
     {{- else -}}
       {{- $authors = $authors | append $name -}}
+      {{- if eq $i 0 -}}
+        {{- $familyKey = $name | replaceRE "[^A-Za-z]" "" | lower -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- if eq (len $authors) 0 -}}
   {{- $authors = slice "Goswami, Rohit" -}}
+  {{- $familyKey = "goswami" -}}
+{{- end -}}
+{{- $stop := dict "a" 1 "an" 1 "the" 1 "and" 1 "or" 1 "of" 1 "in" 1 "on" 1 "at" 1 "to" 1 "for" 1 "with" 1 "by" 1 "from" 1 "its" 1 "is" 1 "are" 1 "was" 1 "were" 1 "be" 1 "been" 1 "being" 1 "has" 1 "have" 1 "had" 1 "do" 1 "does" 1 "did" 1 "but" 1 "not" 1 "no" 1 "nor" 1 "so" 1 "yet" 1 "if" 1 "then" 1 "than" 1 "that" 1 "this" 1 "these" 1 "those" 1 "it" 1 "as" 1 -}}
+{{- $titlePart := "" -}}
+{{- $taken := 0 -}}
+{{- range split $title " " -}}
+  {{- if lt $taken 3 -}}
+    {{- $clean := . | replaceRE "[^A-Za-z0-9]" "" -}}
+    {{- $lower := $clean | lower -}}
+    {{- if and $clean (not (index $stop $lower)) -}}
+      {{- $first := substr $clean 0 1 | upper -}}
+      {{- $rest := substr $clean 1 | lower -}}
+      {{- $titlePart = printf "%s%s%s" $titlePart $first $rest -}}
+      {{- $taken = add $taken 1 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $key := printf "%s%s%s" $familyKey $titlePart $year -}}
+{{- if eq $key "" -}}
+  {{- $key = "ref" -}}
 {{- end -}}
 {{- $authorField := delimit $authors " and " -}}
-{{- $title := .Title | plainify -}}
 <details class="cite-this-page">
   <summary>Cite this page</summary>
   <p class="cite-this-page__plain">{{ $authorField }} ({{ $year }}). <cite>{{ $title }}</cite>. {{ .Permalink }}</p>
