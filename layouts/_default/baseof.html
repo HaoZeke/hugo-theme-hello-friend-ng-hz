@@ -8,7 +8,19 @@
         <a class="screen-reader-text" href="#main-content">Skip to content</a>
         <div class="container">
             {{ partial "header.html" . }}
+            {{- $hasMath := false -}}
+            {{- if .Params.math -}}
+              {{- $hasMath = true -}}
+            {{- else -}}
+              {{- with .RawContent -}}
+                {{- if findRE `(?s)\\\(|\\\[|\$\$|(^|[^\\$])\$[^$\n]+\$` . -}}
+                  {{- $hasMath = true -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+            {{- if $hasMath -}}
             {{ partial "mathjax.html" }}
+            {{- end -}}
             {{- if .Site.Params.CommentBox }}
             <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
             {{- end }}

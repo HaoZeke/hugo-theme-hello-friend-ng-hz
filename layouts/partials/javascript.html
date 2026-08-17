@@ -92,6 +92,23 @@
       f.setAttribute('title', 'Search widget');
     });
   }, 1000);
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    var ds = document.querySelector('.DocSearch-Button');
+    var box = document.getElementById('search-query');
+    if (ds) {
+      e.preventDefault();
+      ds.click();
+    } else if (box) {
+      e.preventDefault();
+      box.focus();
+    } else {
+      e.preventDefault();
+      window.location.href = {{ "search" | relLangURL | jsonify }};
+    }
+  });
 </script>
 {{- end }}
 
