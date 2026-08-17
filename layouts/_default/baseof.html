@@ -24,9 +24,8 @@
             {{- if .Site.Params.CommentBox }}
             <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
             {{- end }}
-            <div id="main-content" tabindex="-1">
+            {{- /* .container children are named grid items; do not wrap this block. Skip target lives on .homePage / <main>. */ -}}
             {{ block "main" . }}{{ end }}
-            </div>
             {{ block "footer" . }}
                 {{ partial "footer.html" . }}
             {{ end }}
